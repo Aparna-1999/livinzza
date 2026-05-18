@@ -20,7 +20,7 @@ const NavLinks = ({ className }: NavLinksProps) => {
         <Link
           key={link.name}
           href={link.href}
-          className="whitespace-nowrap text-sm font-medium text-slate-600 transition-colors hover:text-slate-900 dark:text-slate-300 dark:hover:text-white"
+          className="whitespace-nowrap text-sm font-medium text-slate-300 transition-colors hover:text-white"
         >
           {link.name}
         </Link>

@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const Logo = ({ className }: { className?: string }) => {
   return (
-    <div className={`flex items-center ${className}`}>
+    <div className={`flex items-center ${className ?? ""}`}>
       <Image
         src="https://livinnza.com/livinnza-logo-light.png"
         alt="Livinnza"
