@@ -29,7 +29,7 @@ const MissionVisionSection = () => {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent opacity-80" />
               <div className="absolute bottom-6 left-6 flex items-center gap-3">
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-sky-500 text-white shadow-lg backdrop-blur-md">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary text-white shadow-lg backdrop-blur-md">
                   <Target className="h-6 w-6" />
                 </div>
                 <Typography variant="h3" className="text-2xl font-bold text-white">

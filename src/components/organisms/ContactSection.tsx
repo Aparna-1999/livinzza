@@ -68,7 +68,7 @@ const ContactSection = () => {
               className="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-slate-900 dark:shadow-[0_18px_60px_rgba(2,6,23,0.28)]"
             >
               <div className="flex items-center gap-3">
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-sky-500 text-white">
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary text-white">
                   <Sparkles className="h-5 w-5" />
                 </div>
                 <div>
@@ -87,7 +87,7 @@ const ContactSection = () => {
                   return (
                     <article key={card.title} className="rounded-[1.5rem] border border-slate-100 bg-slate-50 p-4 dark:border-white/10 dark:bg-white/5">
                       <div className="flex items-center gap-3">
-                        <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-white text-sky-500 shadow-sm dark:bg-slate-950 dark:text-sky-300">
+                        <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-white text-primary shadow-sm dark:bg-slate-950 dark:text-primary">
                           <Icon className="h-5 w-5" />
                         </div>
                         <Typography variant="h4" className="text-base text-slate-900 dark:text-slate-50">

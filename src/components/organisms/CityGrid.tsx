@@ -11,7 +11,7 @@ const cities = [
     name: "Bangalore",
     caption: "Academic corridors",
     icon: Building2,
-    tone: "from-blue-500 via-cyan-500 to-sky-400",
+    tone: "from-blue-500 via-cyan-500 to-primary",
     slug: "bangalore",
   },
   {
@@ -32,7 +32,7 @@ const cities = [
     name: "Trivandrum",
     caption: "Trusted residential stay",
     icon: Castle,
-    tone: "from-indigo-500 via-blue-500 to-sky-500",
+    tone: "from-indigo-500 via-blue-500 to-primary",
     slug: "trivandrum",
   },
   {

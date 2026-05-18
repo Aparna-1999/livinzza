@@ -14,7 +14,7 @@ const sliderCards = [
     caption: "Extend hostel capacity without expanding your campus footprint.",
     image: "/images/bangalore.png",
     icon: Building2,
-    accent: "from-sky-500/70 via-blue-500/40 to-transparent",
+    accent: "from-primary/70 via-blue-500/40 to-transparent",
   },
   {
     title: "For Students",
@@ -51,7 +51,7 @@ const Hero = () => {
       <div className="mx-auto max-w-7xl px-4 pb-16 pt-10 sm:px-6 lg:px-8 lg:pb-24 lg:pt-16">
         <div className="grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
           <motion.div initial={false} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: "easeOut" }}>
-            <Badge variant="secondary" className="mb-6 border border-slate-200 bg-white px-4 py-2 text-[11px] uppercase tracking-[0.2em] text-sky-600 dark:border-white/10 dark:bg-white/5 dark:text-sky-200">
+            <Badge variant="secondary" className="mb-6 border border-slate-200 bg-white px-4 py-2 text-[11px] uppercase tracking-[0.2em] text-primary dark:border-white/10 dark:bg-white/5 dark:text-primary/80">
               Institutional hostel solutions for universities, colleges, and parents
             </Badge>
 
@@ -69,7 +69,7 @@ const Hero = () => {
                 Partner with Livinnza
                 <ArrowRight className="h-4 w-4" />
               </Button>
-              <Button href="#cities" variant="secondary" className="rounded-full border-white/10 bg-sky-500 text-white px-6 hover:bg-sky-400">
+              <Button href="#cities" variant="secondary" className="rounded-full border-white/10 bg-primary text-white px-6 hover:bg-primary-hover">
                 Explore Hostels by City
               </Button>
             </div>
@@ -95,7 +95,7 @@ const Hero = () => {
                 <div className="flex items-center justify-between gap-4">
                   <div>
                     <Typography variant="h3" className="mt-2 text-2xl text-slate-900 dark:text-white">
-                      Three audiences. One trusted housing standard.
+                      One trusted housing standard.
                     </Typography>
                   </div>
                   <Badge variant="secondary" className="rounded-full bg-slate-200 px-3 py-1 text-xs text-slate-700 dark:bg-white/10 dark:text-white">
@@ -116,11 +116,11 @@ const Hero = () => {
                         <div className="relative min-h-56">
                           <Image src={currentSlide.image} alt={currentSlide.title} fill className="object-cover" />
                           <div className={`absolute inset-0 bg-gradient-to-t ${currentSlide.accent}`} />
-                          <div className="absolute left-4 top-4 flex h-10 w-10 items-center justify-center rounded-2xl bg-sky-500/90 text-white backdrop-blur">
+                          <div className="absolute left-4 top-4 flex h-10 w-10 items-center justify-center rounded-2xl bg-primary/90 text-white backdrop-blur">
                             <Icon className="h-5 w-5" />
                           </div>
                           <div className="absolute bottom-4 left-4 right-4 rounded-2xl bg-slate-950/80 px-4 py-3 backdrop-blur">
-                            <div className="text-xs uppercase tracking-[0.28em] text-sky-200/70">Focus</div>
+                            <div className="text-xs uppercase tracking-[0.28em] text-primary/70">Focus</div>
                             <div className="mt-1 text-lg font-semibold text-white">{currentSlide.title}</div>
                           </div>
                         </div>
@@ -151,7 +151,7 @@ const Hero = () => {
                               <button
                                 type="button"
                                 onClick={() => setActiveSlide((value) => (value - 1 + sliderCards.length) % sliderCards.length)}
-                                className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-600 transition-colors hover:bg-slate-50 dark:border-white/10 dark:bg-white/5 dark:text-white dark:hover:bg-white/10"
+                                className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-white transition-colors hover:bg-primary-hover shadow-sm"
                                 aria-label="Previous slide"
                               >
                                 <ChevronLeft className="h-4 w-4" />
@@ -159,7 +159,7 @@ const Hero = () => {
                               <button
                                 type="button"
                                 onClick={() => setActiveSlide((value) => (value + 1) % sliderCards.length)}
-                                className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-600 transition-colors hover:bg-slate-50 dark:border-white/10 dark:bg-white/5 dark:text-white dark:hover:bg-white/10"
+                                className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-white transition-colors hover:bg-primary-hover shadow-sm"
                                 aria-label="Next slide"
                               >
                                 <ChevronRight className="h-4 w-4" />

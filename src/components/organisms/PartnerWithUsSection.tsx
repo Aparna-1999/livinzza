@@ -71,7 +71,7 @@ const PartnerWithUsSection = () => {
             className="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm sm:p-8 dark:border-white/10 dark:bg-slate-900 dark:shadow-[0_18px_60px_rgba(2,6,23,0.28)]"
           >
             <div className="flex items-center gap-3">
-              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-sky-500 text-white">
+              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary text-white">
                 <Handshake className="h-5 w-5" />
               </div>
               <div>
@@ -159,7 +159,7 @@ const PartnerWithUsSection = () => {
                   const Icon = benefit.icon;
                   return (
                     <article key={benefit.title} className="rounded-[1.5rem] border border-slate-100 bg-slate-50 p-4 dark:border-white/10 dark:bg-white/5">
-                      <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-sky-500 text-white">
+                      <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-primary text-white">
                         <Icon className="h-5 w-5" />
                       </div>
                       <Typography variant="h4" className="mt-4 text-lg text-slate-900 dark:text-slate-50">
@@ -178,7 +178,7 @@ const PartnerWithUsSection = () => {
               initial={false}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.55, ease: "easeOut", delay: 0.08 }}
-              className="rounded-[2rem] border border-sky-200 bg-sky-50 p-6 text-slate-900 shadow-sm dark:border-sky-500/20 dark:bg-sky-500/10 dark:text-slate-100 dark:shadow-[0_18px_60px_rgba(2,6,23,0.28)]"
+              className="rounded-[2rem] border border-primary/20 bg-primary/5 p-6 text-slate-900 shadow-sm dark:border-primary/20 dark:bg-primary/10 dark:text-slate-100 dark:shadow-[0_18px_60px_rgba(2,6,23,0.28)]"
             >
               <Typography variant="h4" className="text-xl text-slate-900 dark:text-slate-50">
                 Partnership Benefits

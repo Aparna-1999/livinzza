@@ -29,12 +29,12 @@ const FAQItem = ({ question, answer, isOpen, onClick }: { question: string, answ
       <button
         type="button"
         onClick={onClick}
-        className="flex w-full items-center justify-between gap-4 py-6 text-left outline-none transition-colors hover:text-sky-200 focus:outline-none focus-visible:outline-none"
+        className="flex w-full items-center justify-between gap-4 py-6 text-left outline-none transition-colors hover:text-primary/80 focus:outline-none focus-visible:outline-none"
         aria-expanded={isOpen}
       >
         <span className="text-base font-semibold leading-7 text-slate-900 dark:text-slate-50 md:text-lg">{question}</span>
         <span className="flex-shrink-0">
-          {isOpen ? <Minus className="h-5 w-5 text-sky-500 dark:text-sky-300" /> : <Plus className="h-5 w-5 text-slate-400" />}
+          {isOpen ? <Minus className="h-5 w-5 text-primary dark:text-primary" /> : <Plus className="h-5 w-5 text-slate-400" />}
         </span>
       </button>
       {isOpen ? (
@@ -55,7 +55,7 @@ const FAQ = () => {
     <section id="faq" className="bg-white py-20 dark:bg-slate-950">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-3xl text-center">
-          <Typography variant="small" className="uppercase tracking-[0.26em] text-sky-600 dark:text-sky-200/70">
+          <Typography variant="small" className="uppercase tracking-[0.26em] text-primary dark:text-primary/80">
             FAQ
           </Typography>
           <Typography variant="h2" className="mt-4 text-3xl text-slate-900 md:text-4xl dark:text-white">

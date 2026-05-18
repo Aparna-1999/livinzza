@@ -24,7 +24,7 @@ const Header = () => {
             <Button href="/hostels" variant="outline" size="sm" className="rounded-full border-white/15 bg-transparent px-4 text-slate-100 hover:bg-white/10">
               View listings
             </Button>
-            <Button href="/know-more" variant="secondary" size="sm" className="rounded-full border-white/10 bg-sky-500 text-white px-4 hover:bg-sky-400">
+            <Button href="/know-more" variant="secondary" size="sm" className="rounded-full border-white/10 bg-primary text-white px-4 hover:bg-primary-hover">
               Know More
             </Button>
           </div>
@@ -63,7 +63,7 @@ const Header = () => {
               <Button href="/hostels" variant="outline" className="w-full rounded-full">
                 View listings
               </Button>
-              <Button href="/know-more" variant="secondary" className="w-full rounded-full bg-sky-500 text-white hover:bg-sky-400">
+              <Button href="/know-more" variant="secondary" className="w-full rounded-full bg-primary text-white hover:bg-primary-hover">
                 Know More
               </Button>
               <Button href="#book" className="w-full rounded-full">

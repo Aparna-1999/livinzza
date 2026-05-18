@@ -90,7 +90,7 @@ const UniversitySlider = () => {
                 {sliderData[activeSlide].subheadline}
               </Typography>
               <div className="mt-10 flex items-center gap-4">
-                <Button href={sliderData[activeSlide].href} variant="primary" className="inline-flex items-center gap-2 rounded-full px-8 py-4 text-base shadow-lg shadow-sky-500/20">
+                <Button href={sliderData[activeSlide].href} variant="primary" className="inline-flex items-center gap-2 rounded-full px-8 py-4 text-base shadow-lg shadow-primary/20">
                   {sliderData[activeSlide].cta}
                   <ArrowRight className="h-5 w-5" />
                 </Button>
@@ -107,7 +107,7 @@ const UniversitySlider = () => {
             <button
               key={index}
               onClick={() => setActiveSlide(index)}
-              className={`h-1.5 rounded-full transition-all duration-300 ${activeSlide === index ? "w-10 bg-sky-400" : "w-4 bg-white/40 hover:bg-white/60"}`}
+              className={`h-1.5 rounded-full transition-all duration-300 ${activeSlide === index ? "w-10 bg-primary" : "w-4 bg-white/40 hover:bg-white/60"}`}
               aria-label={`Go to slide ${index + 1}`}
             />
           ))}
@@ -116,14 +116,14 @@ const UniversitySlider = () => {
         <div className="flex items-center gap-3">
           <button
             onClick={prevSlide}
-            className="flex h-12 w-12 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white backdrop-blur-md transition-all hover:bg-white/20"
+            className="flex h-12 w-12 items-center justify-center rounded-full bg-primary text-white shadow-lg shadow-primary/20 transition-all hover:bg-primary-hover"
             aria-label="Previous slide"
           >
             <ChevronLeft className="h-6 w-6" />
           </button>
           <button
             onClick={nextSlide}
-            className="flex h-12 w-12 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white backdrop-blur-md transition-all hover:bg-white/20"
+            className="flex h-12 w-12 items-center justify-center rounded-full bg-primary text-white shadow-lg shadow-primary/20 transition-all hover:bg-primary-hover"
             aria-label="Next slide"
           >
             <ChevronRight className="h-6 w-6" />

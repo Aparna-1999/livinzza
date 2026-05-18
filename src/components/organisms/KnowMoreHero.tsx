@@ -71,7 +71,7 @@ const KnowMoreHero = () => {
                   <div className="mt-3 inline-flex rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-600 dark:bg-white/5 dark:text-slate-300">
                     {block.pill}
                   </div>
-                  {index === 0 ? <div className="mt-4 h-1 rounded-full bg-sky-400" /> : null}
+                  {index === 0 ? <div className="mt-4 h-1 rounded-full bg-primary" /> : null}
                   {index === 1 ? <div className="mt-4 h-1 rounded-full bg-slate-700" /> : null}
                   {index === 2 ? <div className="mt-4 h-1 rounded-full bg-slate-700" /> : null}
                 </div>
@@ -84,7 +84,7 @@ const KnowMoreHero = () => {
                 {Array.from({ length: 20 }).map((_, index) => (
                   <div
                     key={index}
-                    className={`h-12 rounded-md ${index % 5 === 0 ? "bg-slate-300 dark:bg-slate-700" : index % 3 === 0 ? "bg-slate-200 dark:bg-slate-900" : "bg-sky-100 dark:bg-sky-400/20"}`}
+                    className={`h-12 rounded-md ${index % 5 === 0 ? "bg-slate-300 dark:bg-slate-700" : index % 3 === 0 ? "bg-slate-200 dark:bg-slate-900" : "bg-primary/10 dark:bg-primary/20"}`}
                   />
                 ))}
               </div>

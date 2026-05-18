@@ -73,7 +73,7 @@ const KnowMoreSections = () => {
               const Icon = feature.icon;
               return (
                 <article key={feature.title} className="rounded-[1.75rem] border border-slate-200 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-slate-900 dark:shadow-[0_18px_50px_rgba(2,6,23,0.28)]">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-sky-500 text-white">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary text-white">
                     <Icon className="h-6 w-6" />
                   </div>
                   <Typography variant="h4" className="mt-5 text-xl text-slate-900 dark:text-slate-50">
@@ -107,7 +107,7 @@ const KnowMoreSections = () => {
             <div className="space-y-6">
               {steps.map(([number, title, description]) => (
                 <article key={number} className="rounded-[1.75rem] border border-slate-200 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-slate-950 dark:shadow-[0_18px_50px_rgba(2,6,23,0.28)]">
-                  <div className="text-sm font-black uppercase tracking-[0.26em] text-sky-600 dark:text-sky-300">{number}</div>
+                  <div className="text-sm font-black uppercase tracking-[0.26em] text-primary dark:text-primary">{number}</div>
                   <Typography variant="h4" className="mt-3 text-xl text-slate-900 dark:text-slate-50">
                     {title}
                   </Typography>

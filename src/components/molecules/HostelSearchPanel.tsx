@@ -10,7 +10,7 @@ const HostelSearchPanel = () => {
     <div className="rounded-[2rem] border border-slate-200 bg-white shadow-md dark:border-white/10 dark:bg-slate-950 dark:shadow-[0_18px_60px_rgba(2,6,23,0.28)]">
       <div className="grid gap-px overflow-hidden rounded-[2rem] bg-slate-200 lg:grid-cols-[1fr_1fr_1fr_auto] dark:bg-white/10">
         <button type="button" className={fieldStyles}>
-          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-slate-100 text-sky-500 dark:bg-white/10 dark:text-sky-300">
+          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-slate-100 text-primary dark:bg-white/10 dark:text-primary">
             <MapPin className="h-4 w-4" />
           </div>
           <div className="text-left">
@@ -20,7 +20,7 @@ const HostelSearchPanel = () => {
         </button>
 
         <button type="button" className={fieldStyles}>
-          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-slate-100 text-sky-500 dark:bg-white/10 dark:text-sky-300">
+          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-slate-100 text-primary dark:bg-white/10 dark:text-primary">
             <Building2 className="h-4 w-4" />
           </div>
           <div className="text-left">
@@ -30,7 +30,7 @@ const HostelSearchPanel = () => {
         </button>
 
         <div className={fieldStyles}>
-          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-slate-100 text-sky-500 dark:bg-white/10 dark:text-sky-300">
+          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-slate-100 text-primary dark:bg-white/10 dark:text-primary">
             <Search className="h-4 w-4" />
           </div>
           <div className="text-left">

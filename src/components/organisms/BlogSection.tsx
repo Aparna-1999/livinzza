@@ -45,7 +45,7 @@ const BlogSection = () => {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12">
           <div className="max-w-2xl">
-            <Typography variant="small" className="uppercase tracking-[0.26em] text-sky-600 dark:text-sky-200/70">
+            <Typography variant="small" className="uppercase tracking-[0.26em] text-primary dark:text-primary/80">
               Livinnza Journal
             </Typography>
             <Typography variant="h2" className="mt-3 text-3xl md:text-4xl font-bold text-slate-900 dark:text-white">
@@ -97,7 +97,7 @@ const BlogSection = () => {
                     </span>
                   </div>
                   <Link href={`/blog/${post.slug}`} className="block mt-4 outline-none">
-                    <Typography variant="h4" className="text-xl font-bold text-slate-900 transition-colors group-hover:text-primary dark:text-white dark:group-hover:text-sky-400">
+                    <Typography variant="h4" className="text-xl font-bold text-slate-900 transition-colors group-hover:text-primary dark:text-white dark:group-hover:text-primary">
                       {post.title}
                     </Typography>
                   </Link>
@@ -106,7 +106,7 @@ const BlogSection = () => {
                   </Typography>
                 </div>
                 <div className="mt-6">
-                  <Link href={`/blog/${post.slug}`} className="inline-flex items-center gap-2 text-sm font-semibold text-primary transition-colors hover:text-sky-600 dark:hover:text-sky-400 outline-none">
+                  <Link href={`/blog/${post.slug}`} className="inline-flex items-center gap-2 text-sm font-semibold text-primary transition-colors hover:text-primary dark:hover:text-primary outline-none">
                     Read full article <ArrowRight className="h-4 w-4" />
                   </Link>
                 </div>

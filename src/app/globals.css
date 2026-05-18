@@ -3,8 +3,8 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme inline {
-  --color-primary: #38bdf8;
-  --color-primary-hover: #0ea5e9;
+  --color-primary: #006eeb;
+  --color-primary-hover: #0059c4;
   --color-secondary: #0f172a;
   --color-accent: #22c55e;
   --color-slate-50: #f8fafc;
@@ -29,7 +29,7 @@
 :root {
   --background: #ffffff;
   --foreground: #0f172a;
-  --primary: #0ea5e9;
+  --primary: #006eeb;
   --primary-foreground: #ffffff;
   --secondary: #f1f5f9;
   --secondary-foreground: #0f172a;
@@ -48,7 +48,7 @@
 .dark {
   --background: #050b18;
   --foreground: #e5eefc;
-  --primary: #38bdf8;
+  --primary: #006eeb;
   --primary-foreground: #ffffff;
   --secondary: #0f172a;
   --secondary-foreground: #e5eefc;

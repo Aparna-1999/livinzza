@@ -24,7 +24,7 @@ const ProcessSection = () => {
     <section id="process" className="bg-white py-20 dark:bg-slate-950">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl">
-          <Typography variant="small" className="uppercase tracking-[0.26em] text-sky-600 dark:text-sky-200/70">
+          <Typography variant="small" className="uppercase tracking-[0.26em] text-primary dark:text-primary/80">
             How Livinnza Works
           </Typography>
           <Typography variant="h2" className="mt-4 text-3xl md:text-4xl text-slate-900 dark:text-white">

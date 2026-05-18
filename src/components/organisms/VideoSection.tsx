@@ -13,7 +13,7 @@ const VideoSection = () => {
     <section className="bg-slate-50 py-20 dark:bg-slate-950">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-3xl text-center mb-12">
-          <Typography variant="small" className="uppercase tracking-[0.26em] text-sky-600 dark:text-sky-200/70">
+          <Typography variant="small" className="uppercase tracking-[0.26em] text-primary dark:text-primary/80">
             About Livinnza
           </Typography>
           <Typography variant="h2" className="mt-3 text-3xl md:text-4xl font-bold text-slate-900 dark:text-white">
@@ -81,7 +81,7 @@ const VideoSection = () => {
           </div>
           
           {/* Decorative background elements */}
-          <div className="absolute -inset-4 -z-10 rounded-[2.5rem] bg-gradient-to-b from-sky-100 to-transparent opacity-50 dark:from-sky-900/20 blur-xl" />
+          <div className="absolute -inset-4 -z-10 rounded-[2.5rem] bg-gradient-to-b from-primary/10 to-transparent opacity-50 dark:from-primary/20 blur-xl" />
         </div>
       </div>
     </section>
