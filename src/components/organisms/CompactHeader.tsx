@@ -21,7 +21,7 @@ const CompactHeader = () => {
     : { href: "/know-more", label: "Know More" };
 
   return (
-    <header className="border-b border-white/10 bg-slate-950/95 text-slate-100 shadow-[0_2px_12px_rgba(2,6,23,0.35)] backdrop-blur">
+    <header className="border-b border-slate-200 bg-white/95 text-slate-900 shadow-sm backdrop-blur dark:border-white/10 dark:bg-slate-950/95 dark:text-slate-100 dark:shadow-[0_2px_12px_rgba(2,6,23,0.35)]">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8">
         <Link href="/" aria-label="Livinnza home">
           <Logo />
@@ -29,10 +29,10 @@ const CompactHeader = () => {
 
         <div className="flex items-center gap-3">
           <ThemeToggle />
-          <Button href={primaryCta.href} variant="outline" size="sm" className="border-white/15 bg-white/5 text-slate-100 hover:bg-white/10">
+          <Button href={primaryCta.href} variant="outline" size="sm" className="border-slate-200 bg-transparent text-slate-700 hover:bg-slate-100 dark:border-white/15 dark:bg-white/5 dark:text-slate-100 dark:hover:bg-white/10">
             {primaryCta.label}
           </Button>
-          <Button href={secondaryCta.href} variant="secondary" size="sm" className="border-white/10 bg-white/10 text-slate-100 hover:bg-white/15">
+          <Button href={secondaryCta.href} variant="secondary" size="sm" className="border-slate-200 bg-primary text-white hover:bg-primary-hover dark:border-white/10 dark:bg-white/10 dark:text-slate-100 dark:hover:bg-white/15">
             {secondaryCta.label}
           </Button>
         </div>

@@ -12,7 +12,7 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/10 bg-slate-950/95 text-slate-100 backdrop-blur">
+    <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/95 text-slate-900 backdrop-blur shadow-sm dark:border-white/10 dark:bg-slate-950/95 dark:text-slate-100">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between gap-4 py-4 lg:py-5">
           <Link href="/" aria-label="Livinnza home">
@@ -21,10 +21,10 @@ const Header = () => {
 
           <div className="hidden items-center gap-3 md:flex">
             <ThemeToggle />
-            <Button href="/hostels" variant="outline" size="sm" className="rounded-full border-white/15 bg-white/5 px-4 text-slate-100 hover:bg-white/10">
+            <Button href="/hostels" variant="outline" size="sm" className="rounded-full border-slate-200 bg-transparent px-4 text-slate-700 hover:bg-slate-100 dark:border-white/15 dark:text-slate-100 dark:hover:bg-white/10">
               View listings
             </Button>
-            <Button href="/know-more" variant="secondary" size="sm" className="rounded-full border-white/10 bg-primary text-white px-4 hover:bg-primary-hover">
+            <Button href="/know-more" variant="secondary" size="sm" className="rounded-full border-slate-200 bg-primary text-white px-4 hover:bg-primary-hover dark:border-white/10">
               Know More
             </Button>
           </div>
@@ -34,7 +34,7 @@ const Header = () => {
             <button
               type="button"
               onClick={() => setIsOpen((value) => !value)}
-              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-slate-100 hover:bg-white/10"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 text-slate-700 hover:bg-slate-100 dark:border-white/15 dark:text-slate-100 dark:hover:bg-white/10"
               aria-label="Toggle navigation"
             >
               {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -42,12 +42,12 @@ const Header = () => {
           </div>
         </div>
 
-        <div className="hidden items-center justify-between gap-6 border-t border-white/10 py-3 lg:flex">
+        <div className="hidden items-center justify-between gap-6 border-t border-slate-200 py-3 lg:flex dark:border-white/10">
           <NavLinks className="text-xs xl:text-sm" />
 
           <div className="flex items-center gap-3">
-            <div className="max-w-xs text-right text-xs leading-5 text-slate-400 xl:text-sm">
-              <div className="font-semibold text-slate-100">Our Address</div>
+            <div className="max-w-xs text-right text-xs leading-5 text-slate-500 xl:text-sm dark:text-slate-400">
+              <div className="font-semibold text-slate-900 dark:text-slate-100">Our Address</div>
               <div>Bagalur, New Airport Road, North Bengaluru, Karnataka</div>
             </div>
             <Button href="#book" size="sm" className="rounded-full px-4 xl:px-5">
@@ -57,10 +57,10 @@ const Header = () => {
         </div>
 
         {isOpen ? (
-          <div className="border-t border-white/10 py-4 md:hidden">
+          <div className="border-t border-slate-200 py-4 md:hidden dark:border-white/10">
             <NavLinks className="flex-col items-start gap-4" />
             <div className="mt-6 flex flex-col gap-3">
-              <Button href="/hostels" variant="outline" className="w-full rounded-full border-white/15 bg-white/5 text-slate-100 hover:bg-white/10">
+              <Button href="/hostels" variant="outline" className="w-full rounded-full border-slate-200 text-slate-700 hover:bg-slate-100 dark:border-white/15 dark:text-slate-100 dark:hover:bg-white/10">
                 View listings
               </Button>
               <Button href="/know-more" variant="secondary" className="w-full rounded-full bg-primary text-white hover:bg-primary-hover">
