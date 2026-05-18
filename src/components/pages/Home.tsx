@@ -7,11 +7,13 @@ import { CollegeGrid } from "../organisms/CollegeGrid";
 import { LifestyleGallerySection } from "../organisms/LifestyleGallerySection";
 import { FAQ } from "../organisms/FAQ";
 import { EnquiryFlexSection } from "../organisms/EnquiryFlexSection";
+import { TrustedHousingStandard } from "../organisms/TrustedHousingStandard";
 
 const HomePage = () => {
   return (
     <MainLayout>
       <UniversitySlider />
+      <TrustedHousingStandard />
       <FeaturedHostels />
       <CityGrid />
       <CollegeGrid />
