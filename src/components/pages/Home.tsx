@@ -19,6 +19,7 @@ const HomePage = () => {
     <MainLayout>
       <UniversitySlider />
       <Hero />
+      <FeaturedHostels />
       <CityGrid />
       <MissionVisionSection />
       <CollegeGrid />
@@ -27,7 +28,6 @@ const HomePage = () => {
       <LifestyleGallerySection />
       <BlogSection />
       <VideoSection />
-      <FeaturedHostels />
       <FAQ />
       <ContactSection />
     </MainLayout>
