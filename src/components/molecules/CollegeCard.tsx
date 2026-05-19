@@ -1,4 +1,7 @@
+"use client";
+
 import React from "react";
+import Image from "next/image";
 import { ArrowRight, GraduationCap } from "lucide-react";
 import { Typography } from "../atoms/Typography";
 import { Badge } from "../atoms/Badge";
@@ -8,31 +11,59 @@ interface CollegeCardProps {
   name: string;
   location: string;
   hostels: string;
+  image: string;
   className?: string;
 }
 
-const CollegeCard = ({ name, location, hostels, className }: CollegeCardProps) => {
+const CollegeCard = ({ name, location, hostels, image, className }: CollegeCardProps) => {
+  const scrollToHostels = (e: React.MouseEvent) => {
+    e.preventDefault();
+    const element = document.getElementById("hostels");
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
-    <article className={`rounded-[1.75rem] border border-slate-200 bg-white p-6 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-lg dark:border-white/10 dark:bg-slate-950 ${className ?? ""}`}>
-      <div className="flex items-start justify-between gap-4">
-        <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary text-white">
-          <GraduationCap className="h-6 w-6" />
+    <article className={`group flex flex-col overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl dark:border-white/10 dark:bg-slate-950 ${className ?? ""}`}>
+      {/* Image Header with Badge Overlay */}
+      <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-100 dark:bg-slate-900">
+        <Image
+          src={image}
+          alt={name}
+          fill
+          className="object-cover transition-transform duration-500 group-hover:scale-105"
+        />
+        {/* Floating Priority Badge */}
+        <div className="absolute right-4 top-4 z-10">
+          <Badge variant="secondary" className="rounded-full bg-slate-950/80 text-white backdrop-blur border border-white/10 px-3 py-1 text-xs">
+            {hostels}
+          </Badge>
         </div>
-        <Badge variant="secondary" className="rounded-full bg-slate-100 text-slate-600 dark:bg-white/5 dark:text-slate-300">
-          {hostels}
-        </Badge>
+        {/* Floating icon */}
+        <div className="absolute left-4 bottom-4 z-10 flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-white shadow-md">
+          <GraduationCap className="h-5 w-5" />
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/45 via-transparent to-transparent" />
       </div>
 
-      <Typography variant="h4" className="mt-5 text-xl text-slate-900 dark:text-white">
-        {name}
-      </Typography>
-      <Typography variant="p" className="mt-2 text-sm text-slate-600 dark:text-slate-300">
-        {location}
-      </Typography>
+      {/* Content area */}
+      <div className="flex flex-1 flex-col p-6">
+        <Typography variant="h4" className="text-lg font-bold leading-snug text-slate-900 dark:text-white">
+          {name}
+        </Typography>
+        <Typography variant="p" className="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-300 flex-1">
+          {location}
+        </Typography>
 
-      <Button href="/hostels" variant="link" className="mt-6 h-auto p-0 text-sm font-semibold text-primary dark:text-primary">
-        Find hostels <ArrowRight className="h-4 w-4" />
-      </Button>
+        <Button
+          onClick={scrollToHostels}
+          variant="link"
+          className="mt-6 h-auto p-0 text-sm font-semibold text-primary dark:text-primary inline-flex items-center gap-1 group-hover:underline"
+        >
+          Find hostels <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+        </Button>
+      </div>
     </article>
   );
 };

@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import { Typography } from "../atoms/Typography";
 import { CollegeCard } from "../molecules/CollegeCard";
@@ -7,21 +9,25 @@ const colleges = [
     name: "Dedicated College Allocation",
     location: "Reserved beds for one institution and its student community",
     hostels: "Priority 01",
+    image: "/images/slider_1_capacity.png",
   },
   {
     name: "College-Branded Residence",
     location: "Managed off-campus hostels in the institution's name",
     hostels: "Brand first",
+    image: "/images/slider_2_brand.png",
   },
   {
     name: "Proximity Planning",
     location: "Strategically placed near universities and academic corridors",
     hostels: "Low commute",
+    image: "/images/vit_vellore.png",
   },
   {
     name: "Operational Oversight",
     location: "Safety, discipline, and reporting aligned with academic standards",
     hostels: "Managed care",
+    image: "/images/lifestyle_3.png",
   },
 ];
 
