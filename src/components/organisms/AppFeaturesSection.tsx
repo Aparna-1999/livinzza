@@ -142,34 +142,24 @@ const AppFeaturesSection = () => {
                   priority
                 />
 
-                {/* Animated focal spotlight overlay corresponding to the active feature */}
+                {/* Floating glowing blue highlight frame corresponding to the active feature */}
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={activeFeature}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.4 }}
-                    className="absolute inset-0 pointer-events-none"
+                    initial={{ opacity: 0, scale: 0.98 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.98 }}
+                    transition={{ duration: 0.3 }}
+                    className="absolute inset-0 pointer-events-none z-10"
                   >
-                    {/* Focal light-overlay mask based on focus */}
                     {features[activeFeature].mockupFocus === "left" && (
-                      <div className="absolute inset-0 bg-black/60 mix-blend-multiply transition-all duration-300">
-                        {/* Highlight Left Phone Screen (approx 0% to 33.3% width) */}
-                        <div className="absolute left-[3%] top-[5%] bottom-[5%] w-[30%] bg-transparent shadow-[0_0_0_9999px_rgba(0,0,0,0.6)] rounded-[1.5rem]" />
-                      </div>
+                      <div className="absolute left-[4.8%] top-[5.2%] bottom-[5.2%] w-[29.8%] rounded-[2.1rem] border-2 border-primary shadow-[0_0_20px_rgba(59,130,246,0.6)] animate-pulse" />
                     )}
                     {features[activeFeature].mockupFocus === "center" && (
-                      <div className="absolute inset-0 bg-black/60 mix-blend-multiply transition-all duration-300">
-                        {/* Highlight Middle Phone Screen (approx 34% to 66% width) */}
-                        <div className="absolute left-[34%] top-[5%] bottom-[5%] w-[32%] bg-transparent shadow-[0_0_0_9999px_rgba(0,0,0,0.6)] rounded-[1.5rem]" />
-                      </div>
+                      <div className="absolute left-[35%] top-[5.2%] bottom-[5.2%] w-[30.2%] rounded-[2.1rem] border-2 border-primary shadow-[0_0_20px_rgba(59,130,246,0.6)] animate-pulse" />
                     )}
                     {features[activeFeature].mockupFocus === "right" && (
-                      <div className="absolute inset-0 bg-black/60 mix-blend-multiply transition-all duration-300">
-                        {/* Highlight Right Phone Screen (approx 67% to 97% width) */}
-                        <div className="absolute left-[67%] top-[5%] bottom-[5%] w-[30%] bg-transparent shadow-[0_0_0_9999px_rgba(0,0,0,0.6)] rounded-[1.5rem]" />
-                      </div>
+                      <div className="absolute left-[67.2%] top-[5.2%] bottom-[5.2%] w-[28.5%] rounded-[2.1rem] border-2 border-primary shadow-[0_0_20px_rgba(59,130,246,0.6)] animate-pulse" />
                     )}
                   </motion.div>
                 </AnimatePresence>
