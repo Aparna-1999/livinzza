@@ -16,13 +16,7 @@ interface CollegeCardProps {
 }
 
 const CollegeCard = ({ name, location, hostels, image, className }: CollegeCardProps) => {
-  const scrollToHostels = (e: React.MouseEvent) => {
-    e.preventDefault();
-    const element = document.getElementById("hostels");
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
+  const targetHref = `/hostels?college=${encodeURIComponent(name)}`;
 
   return (
     <article className={`group flex flex-col overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl dark:border-white/10 dark:bg-slate-950 ${className ?? ""}`}>
@@ -57,7 +51,7 @@ const CollegeCard = ({ name, location, hostels, image, className }: CollegeCardP
         </Typography>
 
         <Button
-          onClick={scrollToHostels}
+          href={targetHref}
           variant="link"
           className="mt-6 h-auto p-0 text-sm font-semibold text-primary dark:text-primary inline-flex items-center gap-1 group-hover:underline"
         >
