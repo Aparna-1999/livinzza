@@ -9,7 +9,6 @@ const NavLinks = ({ className }: NavLinksProps) => {
   const links = [
     { name: "About Livinnza", href: "/know-more" },
     { name: "Browse by City", href: "/hostels?selectCity=true" },
-    { name: "Find by College", href: "/hostels?focusCollege=true" },
     { name: "How it Works", href: "/know-more" },
     { name: "Partner with Us", href: "/partner-with-us" },
   ];
