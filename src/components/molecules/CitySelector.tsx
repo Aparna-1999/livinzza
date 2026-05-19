@@ -52,14 +52,20 @@ const CitySelectorContent = () => {
       if (match) {
         setSelectedCity(match.name);
         localStorage.setItem("selected_city", match.name);
-        return;
+      }
+    } else {
+      // fallback to localstorage
+      const saved = localStorage.getItem("selected_city");
+      if (saved) {
+        setSelectedCity(saved);
       }
     }
 
-    // fallback to localstorage
-    const saved = localStorage.getItem("selected_city");
-    if (saved) {
-      setSelectedCity(saved);
+    if (searchParams?.get("selectCity") === "true") {
+      setIsOpen(true);
+      const url = new URL(window.location.href);
+      url.searchParams.delete("selectCity");
+      window.history.replaceState({}, "", url.toString());
     }
   }, [searchParams]);
 

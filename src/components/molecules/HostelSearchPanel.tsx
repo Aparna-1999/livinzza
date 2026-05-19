@@ -21,6 +21,17 @@ const HostelSearchPanel = ({
   const [city, setCity] = useState(initialCity);
   const [college, setCollege] = useState(initialCollege);
   const [hostel, setHostel] = useState(initialHostel);
+  const collegeRef = React.useRef<HTMLInputElement>(null);
+
+  React.useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("focusCollege") === "true") {
+      collegeRef.current?.focus();
+      const url = new URL(window.location.href);
+      url.searchParams.delete("focusCollege");
+      window.history.replaceState({}, "", url.toString());
+    }
+  }, []);
 
   const handleSearch = () => {
     const params = new URLSearchParams();
@@ -59,6 +70,7 @@ const HostelSearchPanel = ({
           <div className="text-left w-full min-w-0">
             <label className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider block">College</label>
             <input
+              ref={collegeRef}
               type="text"
               value={college}
               onChange={(e) => setCollege(e.target.value)}
