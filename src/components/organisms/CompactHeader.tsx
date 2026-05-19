@@ -36,7 +36,7 @@ const CompactHeader = () => {
           <Button onClick={(e) => scrollToSection(e, "hostels")} variant="outline" size="sm" className="border-slate-200 bg-transparent text-slate-700 hover:bg-slate-100 dark:border-white/15 dark:bg-white/5 dark:text-slate-100 dark:hover:bg-white/10 px-2.5 sm:px-4 text-xs sm:text-sm whitespace-nowrap shrink-0">
             View listings
           </Button>
-          <Button onClick={(e) => scrollToSection(e, "standards")} variant="secondary" size="sm" className="hidden sm:inline-flex border-slate-200 bg-primary text-white hover:bg-primary-hover dark:border-white/10 dark:bg-white/10 dark:text-slate-100 dark:hover:bg-white/15 px-2.5 sm:px-4 text-xs sm:text-sm whitespace-nowrap shrink-0">
+          <Button href="/know-more" variant="secondary" size="sm" className="hidden sm:inline-flex border-slate-200 bg-primary text-white hover:bg-primary-hover dark:border-white/10 dark:bg-white/10 dark:text-slate-100 dark:hover:bg-white/15 px-2.5 sm:px-4 text-xs sm:text-sm whitespace-nowrap shrink-0">
             Know More
           </Button>
         </div>

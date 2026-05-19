@@ -39,7 +39,7 @@ const Header = () => {
             <Button onClick={(e) => scrollToSection(e, "hostels")} variant="outline" size="sm" className="rounded-full border-slate-200 bg-transparent px-4 text-slate-700 hover:bg-slate-100 dark:border-white/15 dark:text-slate-100 dark:hover:bg-white/10">
               View listings
             </Button>
-            <Button onClick={(e) => scrollToSection(e, "standards")} variant="secondary" size="sm" className="rounded-full border-slate-200 bg-primary text-white px-4 hover:bg-primary-hover dark:border-white/10">
+            <Button href="/know-more" variant="secondary" size="sm" className="rounded-full border-slate-200 bg-primary text-white px-4 hover:bg-primary-hover dark:border-white/10">
               Know More
             </Button>
           </div>
@@ -78,7 +78,7 @@ const Header = () => {
               <Button onClick={(e) => scrollToSection(e, "hostels")} variant="outline" className="w-full rounded-full border-slate-200 text-slate-700 hover:bg-slate-100 dark:border-white/15 dark:text-slate-100 dark:hover:bg-white/10">
                 View listings
               </Button>
-              <Button onClick={(e) => scrollToSection(e, "standards")} variant="secondary" className="w-full rounded-full bg-primary text-white hover:bg-primary-hover">
+              <Button href="/know-more" variant="secondary" className="w-full rounded-full bg-primary text-white hover:bg-primary-hover">
                 Know More
               </Button>
               <Button onClick={(e) => scrollToSection(e, "enquiry")} className="w-full rounded-full">
