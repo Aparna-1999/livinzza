@@ -7,11 +7,11 @@ interface NavLinksProps {
 
 const NavLinks = ({ className }: NavLinksProps) => {
   const links = [
-    { name: "About Livinnza", href: "/#about" },
-    { name: "Browse by City", href: "/#cities" },
-    { name: "Find by College", href: "/#colleges" },
-    { name: "How it Works", href: "/#process" },
-    { name: "Partner with Us", href: "/#partner" },
+    { name: "About Livinnza", href: "/know-more" },
+    { name: "Browse by City", href: "/hostels" },
+    { name: "Find by College", href: "/hostels" },
+    { name: "How it Works", href: "/know-more" },
+    { name: "Partner with Us", href: "/partner-with-us" },
   ];
 
   return (
