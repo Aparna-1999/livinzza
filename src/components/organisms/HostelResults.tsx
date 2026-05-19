@@ -54,14 +54,27 @@ const hostelResults = [
 
 interface HostelResultsProps {
   citySlug?: string;
+  searchQuery?: string;
 }
 
 const slugify = (value: string) => value.toLowerCase().replace(/[^a-z0-9]+/g, "");
 
-const HostelResults = ({ citySlug }: HostelResultsProps) => {
-  const filteredResults = citySlug
-    ? hostelResults.filter((hostel) => slugify(hostel.city).includes(citySlug))
-    : hostelResults;
+const HostelResults = ({ citySlug, searchQuery }: HostelResultsProps) => {
+  let filteredResults = hostelResults;
+
+  if (citySlug) {
+    filteredResults = filteredResults.filter((hostel) => slugify(hostel.city).includes(citySlug));
+  }
+
+  if (searchQuery) {
+    const q = searchQuery.toLowerCase();
+    filteredResults = filteredResults.filter(
+      (hostel) =>
+        hostel.name.toLowerCase().includes(q) ||
+        hostel.city.toLowerCase().includes(q) ||
+        hostel.college.toLowerCase().includes(q)
+    );
+  }
 
   return (
     <section className="bg-slate-50 pb-24 dark:bg-slate-950">
@@ -74,7 +87,7 @@ const HostelResults = ({ citySlug }: HostelResultsProps) => {
           </div>
         ) : (
           <div className="rounded-[2rem] border border-slate-200 bg-white p-8 text-center text-slate-600 shadow-sm dark:border-white/10 dark:bg-white/5 dark:text-slate-300 dark:shadow-none">
-            No hostels found for this city yet.
+            No hostels found matching your criteria.
           </div>
         )}
       </div>

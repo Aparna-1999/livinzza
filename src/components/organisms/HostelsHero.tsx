@@ -7,11 +7,16 @@ import { CITY_LABEL_BY_SLUG } from "@/data/cities";
 
 interface HostelsHeroProps {
   citySlug?: string;
+  searchQuery?: string;
 }
 
-const HostelsHero = ({ citySlug }: HostelsHeroProps) => {
+const HostelsHero = ({ citySlug, searchQuery }: HostelsHeroProps) => {
   const activeCityLabel = citySlug ? CITY_LABEL_BY_SLUG[citySlug] ?? citySlug : null;
-  const hostelCountLabel = activeCityLabel ? `Hostels in ${activeCityLabel}` : "13 hostels";
+  const hostelCountLabel = activeCityLabel 
+    ? `Hostels in ${activeCityLabel}` 
+    : searchQuery 
+      ? `Search results for "${searchQuery}"` 
+      : "13 hostels";
 
   return (
     <section className="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100">
@@ -24,15 +29,22 @@ const HostelsHero = ({ citySlug }: HostelsHeroProps) => {
                 <span className="mx-2 text-slate-400 dark:text-slate-600">/</span>
                 <span className="font-semibold text-slate-900 dark:text-slate-100">{activeCityLabel}</span>
               </>
+            ) : searchQuery ? (
+              <>
+                <span className="mx-2 text-slate-400 dark:text-slate-600">/</span>
+                <span className="font-semibold text-slate-900 dark:text-slate-100">Search</span>
+              </>
             ) : null}
           </div>
           <Typography variant="h1" className="mt-6 text-[clamp(2.8rem,6vw,5.2rem)] leading-[0.96] tracking-tight">
-            {activeCityLabel ? `Hostels in ${activeCityLabel}` : "Search for hostels"}
+            {activeCityLabel ? `Hostels in ${activeCityLabel}` : searchQuery ? `Search: ${searchQuery}` : "Search for hostels"}
           </Typography>
           <Typography variant="p" className="mt-4 max-w-2xl text-lg text-slate-600 dark:text-slate-300">
             {activeCityLabel
               ? `Showing hostel options relevant to ${activeCityLabel}.`
-              : "Search by city, college, or locality to find verified student accommodation."}
+              : searchQuery
+                ? `Showing verified options matching "${searchQuery}".`
+                : "Search by city, college, or locality to find verified student accommodation."}
           </Typography>
         </div>
 
