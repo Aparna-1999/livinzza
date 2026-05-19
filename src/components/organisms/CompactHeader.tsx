@@ -9,16 +9,16 @@ import { ThemeToggle } from "../atoms/ThemeToggle";
 
 const CompactHeader = () => {
   const pathname = usePathname();
-  const isKnowMorePage = pathname === "/know-more";
-  const isHostelsPage = pathname === "/hostels";
 
-  const primaryCta = isKnowMorePage || isHostelsPage
-    ? { href: "/", label: "Back to home" }
-    : { href: "/hostels", label: "View listings" };
-
-  const secondaryCta = isKnowMorePage
-    ? { href: "/hostels", label: "View listings" }
-    : { href: "/know-more", label: "Know More" };
+  const scrollToSection = (e: React.MouseEvent, id: string) => {
+    e.preventDefault();
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    } else {
+      window.location.href = `/#${id}`;
+    }
+  };
 
   return (
     <header className="border-b border-slate-200 bg-white/95 text-slate-900 shadow-sm backdrop-blur dark:border-white/10 dark:bg-slate-950/95 dark:text-slate-100 dark:shadow-[0_2px_12px_rgba(2,6,23,0.35)] w-full">
@@ -29,11 +29,11 @@ const CompactHeader = () => {
 
         <div className="flex items-center gap-1.5 sm:gap-3 min-w-0">
           <ThemeToggle />
-          <Button href={primaryCta.href} variant="outline" size="sm" className="border-slate-200 bg-transparent text-slate-700 hover:bg-slate-100 dark:border-white/15 dark:bg-white/5 dark:text-slate-100 dark:hover:bg-white/10 px-2.5 sm:px-4 text-xs sm:text-sm whitespace-nowrap shrink-0">
-            {primaryCta.label}
+          <Button onClick={(e) => scrollToSection(e, "hostels")} variant="outline" size="sm" className="border-slate-200 bg-transparent text-slate-700 hover:bg-slate-100 dark:border-white/15 dark:bg-white/5 dark:text-slate-100 dark:hover:bg-white/10 px-2.5 sm:px-4 text-xs sm:text-sm whitespace-nowrap shrink-0">
+            View listings
           </Button>
-          <Button href={secondaryCta.href} variant="secondary" size="sm" className="hidden sm:inline-flex border-slate-200 bg-primary text-white hover:bg-primary-hover dark:border-white/10 dark:bg-white/10 dark:text-slate-100 dark:hover:bg-white/15 px-2.5 sm:px-4 text-xs sm:text-sm whitespace-nowrap shrink-0">
-            {secondaryCta.label}
+          <Button onClick={(e) => scrollToSection(e, "standards")} variant="secondary" size="sm" className="hidden sm:inline-flex border-slate-200 bg-primary text-white hover:bg-primary-hover dark:border-white/10 dark:bg-white/10 dark:text-slate-100 dark:hover:bg-white/15 px-2.5 sm:px-4 text-xs sm:text-sm whitespace-nowrap shrink-0">
+            Know More
           </Button>
         </div>
       </div>
