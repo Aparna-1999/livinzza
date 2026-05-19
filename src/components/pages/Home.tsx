@@ -3,7 +3,7 @@ import { MainLayout } from "../templates/MainLayout";
 import { UniversitySlider } from "../organisms/UniversitySlider";
 import { FeaturedHostels } from "../organisms/FeaturedHostels";
 import { CollegeGrid } from "../organisms/CollegeGrid";
-import { LifestyleGallerySection } from "../organisms/LifestyleGallerySection";
+import { AppFeaturesSection } from "../organisms/AppFeaturesSection";
 import { FAQ } from "../organisms/FAQ";
 import { EnquiryFlexSection } from "../organisms/EnquiryFlexSection";
 import { TrustedHousingStandard } from "../organisms/TrustedHousingStandard";
@@ -15,7 +15,7 @@ const HomePage = () => {
       <TrustedHousingStandard />
       <FeaturedHostels />
       <CollegeGrid />
-      <LifestyleGallerySection />
+      <AppFeaturesSection />
       <FAQ />
       <EnquiryFlexSection />
     </MainLayout>
