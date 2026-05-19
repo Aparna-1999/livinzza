@@ -2,6 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { Typography } from "../atoms/Typography";
 import { Badge } from "../atoms/Badge";
@@ -55,9 +56,12 @@ const HostelCard = ({ name, location, price, rating, image, isVerified = true, c
           <MapPin className="h-4 w-4" />
           <span className="line-clamp-1">{location}</span>
         </div>
-        <button className="w-full rounded-xl bg-slate-100 py-2.5 text-sm font-semibold text-slate-900 transition-colors hover:bg-primary hover:text-white dark:bg-white/5 dark:text-slate-100 dark:hover:bg-primary">
+        <Link
+          href={`/hostels?hostel=${encodeURIComponent(name)}`}
+          className="block text-center w-full rounded-xl bg-slate-100 py-2.5 text-sm font-semibold text-slate-900 transition-colors hover:bg-primary hover:text-white dark:bg-white/5 dark:text-slate-100 dark:hover:bg-primary"
+        >
           View Details
-        </button>
+        </Link>
       </div>
     </motion.div>
   );
