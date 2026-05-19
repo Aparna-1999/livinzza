@@ -110,7 +110,7 @@ const UniversitySlider = () => {
                         For Institutions
                       </span>
                       <span className="text-[10px] sm:text-xs font-bold text-center leading-tight tracking-tight text-primary w-full break-words whitespace-normal">
-                        I need to expand my campus housing
+                        I Need To Expand My Campus Housing
                       </span>
                     </div>
                     <ArrowRight className="absolute right-1 sm:right-2 h-4 w-4 shrink-0 text-primary transition-transform group-hover:translate-x-0.5" />
@@ -144,7 +144,7 @@ const UniversitySlider = () => {
                           For Students
                         </span>
                         <span className="text-[10px] sm:text-xs font-bold text-center leading-tight tracking-tight text-white w-full break-words whitespace-normal">
-                          I am looking for a bed
+                          I Am Looking For A Bed
                         </span>
                       </div>
                       <ArrowRight className="absolute right-1 sm:right-2 h-4 w-4 shrink-0 text-white transition-transform group-hover:translate-x-0.5" />
