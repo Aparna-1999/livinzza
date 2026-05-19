@@ -7,6 +7,7 @@ import { Logo } from "../atoms/Logo";
 import { Button } from "../atoms/Button";
 import { NavLinks } from "../molecules/NavLinks";
 import { ThemeToggle } from "../atoms/ThemeToggle";
+import { CitySelector } from "../molecules/CitySelector";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -26,9 +27,12 @@ const Header = () => {
     <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/95 text-slate-900 backdrop-blur shadow-sm dark:border-white/10 dark:bg-slate-950/95 dark:text-slate-100">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between gap-4 py-4 lg:py-5">
-          <Link href="/" aria-label="Livinnza home">
-            <Logo />
-          </Link>
+          <div className="flex items-center gap-3 sm:gap-6 min-w-0">
+            <Link href="/" aria-label="Livinnza home" className="shrink-0">
+              <Logo />
+            </Link>
+            <CitySelector />
+          </div>
 
           <div className="hidden items-center gap-3 md:flex">
             <ThemeToggle />

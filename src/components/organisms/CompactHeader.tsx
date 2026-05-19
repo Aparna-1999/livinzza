@@ -6,6 +6,7 @@ import Link from "next/link";
 import { Logo } from "../atoms/Logo";
 import { Button } from "../atoms/Button";
 import { ThemeToggle } from "../atoms/ThemeToggle";
+import { CitySelector } from "../molecules/CitySelector";
 
 const CompactHeader = () => {
   const pathname = usePathname();
@@ -23,9 +24,12 @@ const CompactHeader = () => {
   return (
     <header className="border-b border-slate-200 bg-white/95 text-slate-900 shadow-sm backdrop-blur dark:border-white/10 dark:bg-slate-950/95 dark:text-slate-100 dark:shadow-[0_2px_12px_rgba(2,6,23,0.35)] w-full">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-2 sm:gap-4 px-4 py-4 sm:px-6 lg:px-8 w-full min-w-0">
-        <Link href="/" aria-label="Livinnza home" className="shrink-0">
-          <Logo />
-        </Link>
+        <div className="flex items-center gap-3 sm:gap-6 min-w-0">
+          <Link href="/" aria-label="Livinnza home" className="shrink-0">
+            <Logo />
+          </Link>
+          <CitySelector />
+        </div>
 
         <div className="flex items-center gap-1.5 sm:gap-3 min-w-0">
           <ThemeToggle />
