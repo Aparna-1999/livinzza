@@ -123,7 +123,7 @@ const FeaturedHostels = () => {
   };
 
   return (
-    <section className="bg-slate-50 py-20 dark:bg-slate-950 relative overflow-hidden">
+    <section id="hostels" className="bg-slate-50 py-20 dark:bg-slate-950 relative overflow-hidden">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>

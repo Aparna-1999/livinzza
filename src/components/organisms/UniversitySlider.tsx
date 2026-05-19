@@ -11,12 +11,19 @@ import { ArrowRight, Search, Sparkles } from "lucide-react";
 const UniversitySlider = () => {
   const [searchQuery, setSearchQuery] = useState("");
 
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     if (searchQuery.trim()) {
-      window.location.href = `/hostels?q=${encodeURIComponent(searchQuery.trim())}`;
+      scrollToSection("hostels");
     } else {
-      window.location.href = "/partner-with-us";
+      scrollToSection("enquiry");
     }
   };
 
@@ -65,7 +72,7 @@ const UniversitySlider = () => {
 
               {/* Quick Action CTA & Tags */}
               <div className="mt-8 flex flex-wrap items-center gap-4 w-full min-w-0">
-                <Button href="/partner-with-us" variant="primary" className="inline-flex items-center gap-2 rounded-full px-6 sm:px-7 py-3 sm:py-3.5 text-xs sm:text-sm font-semibold shadow-lg shadow-primary/20 shrink-0">
+                <Button onClick={() => scrollToSection("enquiry")} variant="primary" className="inline-flex items-center gap-2 rounded-full px-6 sm:px-7 py-3 sm:py-3.5 text-xs sm:text-sm font-semibold shadow-lg shadow-primary/20 shrink-0">
                   Partner with Us
                   <ArrowRight className="h-4 w-4" />
                 </Button>
@@ -93,7 +100,7 @@ const UniversitySlider = () => {
               {/* Institutional CTA Button Overlay */}
               <div className="absolute bottom-3 sm:bottom-6 left-1/2 z-20 -translate-x-1/2 w-[calc(100%-1.5rem)] sm:w-[calc(100%-2.5rem)] min-w-0">
                 <Button
-                  href="/partner-with-us"
+                  onClick={() => scrollToSection("enquiry")}
                   variant="secondary"
                   className="w-full h-auto py-3 sm:py-4 px-3 sm:px-5 rounded-[2rem] bg-white/95 hover:bg-white text-slate-900 shadow-lg backdrop-blur border border-white/20 group transition-all [&>span]:w-full"
                 >
@@ -127,7 +134,7 @@ const UniversitySlider = () => {
                 {/* Student CTA Button Overlay */}
                 <div className="absolute bottom-3 sm:bottom-6 left-1/2 z-20 -translate-x-1/2 w-[calc(100%-1.5rem)] sm:w-[calc(100%-3rem)] min-w-0">
                   <Button
-                    href="/hostels"
+                    onClick={() => scrollToSection("hostels")}
                     variant="primary"
                     className="w-full h-auto py-3 sm:py-4 px-3 sm:px-5 rounded-[2rem] bg-primary/95 hover:bg-primary text-white shadow-xl backdrop-blur border border-white/20 group transition-all [&>span]:w-full"
                   >
