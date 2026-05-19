@@ -1,7 +1,7 @@
 import { HostelsPage } from "@/components/pages/Hostels";
 
 interface PageProps {
-  searchParams: Promise<{ city?: string; search?: string }>;
+  searchParams: Promise<{ city?: string; college?: string; hostel?: string; search?: string }>;
 }
 
 export default async function Page({ searchParams }: PageProps) {
@@ -9,7 +9,8 @@ export default async function Page({ searchParams }: PageProps) {
   return (
     <HostelsPage
       citySlug={resolvedParams.city}
-      searchQuery={resolvedParams.search}
+      collegeQuery={resolvedParams.college}
+      hostelQuery={resolvedParams.hostel || resolvedParams.search}
     />
   );
 }

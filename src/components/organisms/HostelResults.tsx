@@ -54,26 +54,27 @@ const hostelResults = [
 
 interface HostelResultsProps {
   citySlug?: string;
-  searchQuery?: string;
+  collegeQuery?: string;
+  hostelQuery?: string;
 }
 
 const slugify = (value: string) => value.toLowerCase().replace(/[^a-z0-9]+/g, "");
 
-const HostelResults = ({ citySlug, searchQuery }: HostelResultsProps) => {
+const HostelResults = ({ citySlug, collegeQuery, hostelQuery }: HostelResultsProps) => {
   let filteredResults = hostelResults;
 
   if (citySlug) {
-    filteredResults = filteredResults.filter((hostel) => slugify(hostel.city).includes(citySlug));
+    filteredResults = filteredResults.filter((hostel) => slugify(hostel.city).includes(slugify(citySlug)));
   }
 
-  if (searchQuery) {
-    const q = searchQuery.toLowerCase();
-    filteredResults = filteredResults.filter(
-      (hostel) =>
-        hostel.name.toLowerCase().includes(q) ||
-        hostel.city.toLowerCase().includes(q) ||
-        hostel.college.toLowerCase().includes(q)
-    );
+  if (collegeQuery) {
+    const q = collegeQuery.toLowerCase();
+    filteredResults = filteredResults.filter((hostel) => hostel.college.toLowerCase().includes(q));
+  }
+
+  if (hostelQuery) {
+    const q = hostelQuery.toLowerCase();
+    filteredResults = filteredResults.filter((hostel) => hostel.name.toLowerCase().includes(q));
   }
 
   return (

@@ -6,14 +6,15 @@ import { FloatingBookButton } from "../organisms/FloatingBookButton";
 
 interface HostelsPageProps {
   citySlug?: string;
-  searchQuery?: string;
+  collegeQuery?: string;
+  hostelQuery?: string;
 }
 
-const HostelsPage = ({ citySlug, searchQuery }: HostelsPageProps) => {
+const HostelsPage = ({ citySlug, collegeQuery, hostelQuery }: HostelsPageProps) => {
   return (
     <MarketingLayout>
-      <HostelsHero citySlug={citySlug} searchQuery={searchQuery} />
-      <HostelResults citySlug={citySlug} searchQuery={searchQuery} />
+      <HostelsHero citySlug={citySlug} collegeQuery={collegeQuery} hostelQuery={hostelQuery} />
+      <HostelResults citySlug={citySlug} collegeQuery={collegeQuery} hostelQuery={hostelQuery} />
       <FloatingBookButton />
     </MarketingLayout>
   );

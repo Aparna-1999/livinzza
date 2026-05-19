@@ -7,16 +7,21 @@ import { CITY_LABEL_BY_SLUG } from "@/data/cities";
 
 interface HostelsHeroProps {
   citySlug?: string;
-  searchQuery?: string;
+  collegeQuery?: string;
+  hostelQuery?: string;
 }
 
-const HostelsHero = ({ citySlug, searchQuery }: HostelsHeroProps) => {
+const HostelsHero = ({ citySlug, collegeQuery, hostelQuery }: HostelsHeroProps) => {
   const activeCityLabel = citySlug ? CITY_LABEL_BY_SLUG[citySlug] ?? citySlug : null;
-  const hostelCountLabel = activeCityLabel 
-    ? `Hostels in ${activeCityLabel}` 
-    : searchQuery 
-      ? `Search results for "${searchQuery}"` 
-      : "13 hostels";
+  const isSearching = activeCityLabel || collegeQuery || hostelQuery;
+
+  let hostelCountLabel = "13 hostels";
+  if (activeCityLabel) {
+    hostelCountLabel = `Hostels in ${activeCityLabel}`;
+  } else if (collegeQuery || hostelQuery) {
+    const terms = [collegeQuery, hostelQuery].filter(Boolean).join(" / ");
+    hostelCountLabel = `Results for "${terms}"`;
+  }
 
   return (
     <section className="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100">
@@ -29,7 +34,7 @@ const HostelsHero = ({ citySlug, searchQuery }: HostelsHeroProps) => {
                 <span className="mx-2 text-slate-400 dark:text-slate-600">/</span>
                 <span className="font-semibold text-slate-900 dark:text-slate-100">{activeCityLabel}</span>
               </>
-            ) : searchQuery ? (
+            ) : isSearching ? (
               <>
                 <span className="mx-2 text-slate-400 dark:text-slate-600">/</span>
                 <span className="font-semibold text-slate-900 dark:text-slate-100">Search</span>
@@ -37,19 +42,19 @@ const HostelsHero = ({ citySlug, searchQuery }: HostelsHeroProps) => {
             ) : null}
           </div>
           <Typography variant="h1" className="mt-6 text-[clamp(2.8rem,6vw,5.2rem)] leading-[0.96] tracking-tight">
-            {activeCityLabel ? `Hostels in ${activeCityLabel}` : searchQuery ? `Search: ${searchQuery}` : "Search for hostels"}
+            {activeCityLabel ? `Hostels in ${activeCityLabel}` : isSearching ? "Search results" : "Search for hostels"}
           </Typography>
           <Typography variant="p" className="mt-4 max-w-2xl text-lg text-slate-600 dark:text-slate-300">
             {activeCityLabel
               ? `Showing hostel options relevant to ${activeCityLabel}.`
-              : searchQuery
-                ? `Showing verified options matching "${searchQuery}".`
+              : isSearching
+                ? `Showing verified options matching your search parameters.`
                 : "Search by city, college, or locality to find verified student accommodation."}
           </Typography>
         </div>
 
         <div className="mt-8 max-w-5xl">
-          <HostelSearchPanel />
+          <HostelSearchPanel initialCity={citySlug} initialCollege={collegeQuery} initialHostel={hostelQuery} />
         </div>
 
         <div className="mt-8 flex items-center justify-between gap-4">
