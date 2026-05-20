@@ -102,18 +102,18 @@ const UniversitySlider = () => {
                 <Button
                   onClick={() => scrollToSection("enquiry")}
                   variant="secondary"
-                  className="w-full h-auto py-3 sm:py-4 px-3 sm:px-5 rounded-[2rem] bg-white/95 hover:bg-white text-slate-900 shadow-lg backdrop-blur border border-white/20 group transition-all [&>span]:w-full"
+                  className="w-full h-auto py-2.5 sm:py-3 px-3 sm:px-4 rounded-[2rem] bg-white/95 hover:bg-white text-slate-900 shadow-lg backdrop-blur border border-white/20 group transition-all [&>span]:w-full"
                 >
                   <div className="relative flex items-center justify-center w-full min-w-0 py-0.5">
-                    <div className="flex flex-col items-center justify-center w-full min-w-0 px-6 sm:px-8">
-                      <span className="text-[9px] font-bold uppercase tracking-[0.1em] text-slate-500 mb-1">
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2 w-full min-w-0 px-2 sm:px-4">
+                      <span className="text-[8px] sm:text-[9px] font-bold uppercase tracking-[0.05em] text-slate-500 shrink-0 sm:border-r sm:border-slate-200 sm:pr-2 dark:border-white/10">
                         For Institutions
                       </span>
-                      <span className="text-[10px] sm:text-xs font-bold text-center leading-tight tracking-tight text-primary w-full break-words whitespace-normal">
-                        I Need To Expand My Campus Housing
+                      <span className="text-[9px] sm:text-xs font-extrabold leading-none text-primary text-center sm:text-left">
+                        I Need To Expand
                       </span>
                     </div>
-                    <ArrowRight className="absolute right-1 sm:right-2 h-4 w-4 shrink-0 text-primary transition-transform group-hover:translate-x-0.5" />
+                    <ArrowRight className="absolute right-1 sm:right-2 h-3.5 w-3.5 shrink-0 text-primary transition-transform group-hover:translate-x-0.5" />
                   </div>
                 </Button>
               </div>
@@ -136,18 +136,18 @@ const UniversitySlider = () => {
                   <Button
                     href="/hostels"
                     variant="primary"
-                    className="w-full h-auto py-3 sm:py-4 px-3 sm:px-5 rounded-[2rem] bg-primary/95 hover:bg-primary text-white shadow-xl backdrop-blur border border-white/20 group transition-all [&>span]:w-full"
+                    className="w-full h-auto py-2.5 sm:py-3 px-3 sm:px-4 rounded-[2rem] bg-primary/95 hover:bg-primary text-white shadow-xl backdrop-blur border border-white/20 group transition-all [&>span]:w-full"
                   >
                     <div className="relative flex items-center justify-center w-full min-w-0 py-0.5">
-                      <div className="flex flex-col items-center justify-center w-full min-w-0 px-6 sm:px-8">
-                        <span className="text-[9px] font-bold uppercase tracking-[0.1em] text-white/70 mb-1">
+                      <div className="flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2 w-full min-w-0 px-2 sm:px-4">
+                        <span className="text-[8px] sm:text-[9px] font-bold uppercase tracking-[0.05em] text-white/70 shrink-0 sm:border-r sm:border-white/15 sm:pr-2">
                           For Students
                         </span>
-                        <span className="text-[10px] sm:text-xs font-bold text-center leading-tight tracking-tight text-white w-full break-words whitespace-normal">
+                        <span className="text-[9px] sm:text-xs font-extrabold leading-none text-white text-center sm:text-left">
                           I Am Looking For A Bed
                         </span>
                       </div>
-                      <ArrowRight className="absolute right-1 sm:right-2 h-4 w-4 shrink-0 text-white transition-transform group-hover:translate-x-0.5" />
+                      <ArrowRight className="absolute right-1 sm:right-2 h-3.5 w-3.5 shrink-0 text-white transition-transform group-hover:translate-x-0.5" />
                     </div>
                   </Button>
                 </div>
