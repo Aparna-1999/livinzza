@@ -89,49 +89,47 @@ const UniversitySlider = () => {
           </div>
 
           {/* Right Column: The Two Beautiful Image Containers */}
-          <div className="relative flex items-center justify-center gap-3 sm:gap-6 lg:gap-8 py-6 w-full max-w-full overflow-hidden sm:overflow-visible">
+          <div className="relative flex flex-col min-[500px]:flex-row items-center justify-center gap-6 sm:gap-8 lg:gap-10 py-6 w-full max-w-full overflow-hidden sm:overflow-visible">
             {/* Container 1: Left Image (Tall Pill - Institutions) */}
-            <div className="relative h-[280px] w-[135px] sm:h-[460px] sm:w-[240px] shrink-0 overflow-hidden rounded-3xl sm:rounded-[2.5rem] shadow-xl border border-slate-200/60 dark:border-white/10 bg-slate-100 dark:bg-slate-800 animate-fadeIn">
+            <div className="relative h-[380px] w-[260px] min-[500px]:h-[360px] min-[500px]:w-[200px] sm:h-[500px] sm:w-[280px] lg:h-[540px] lg:w-[300px] shrink-0 overflow-hidden rounded-[3rem] min-[500px]:rounded-[3.5rem] sm:rounded-[4rem] lg:rounded-[4.5rem] shadow-2xl border border-slate-200/60 dark:border-white/10 bg-slate-100 dark:bg-slate-800 animate-fadeIn">
               <div className="absolute inset-0">
                 <Image src="/images/slider_3_network.png" alt="Institutional Solutions" fill className="object-cover" priority />
               </div>
 
               {/* Institutional CTA Button Overlay */}
-              <div className="absolute bottom-3 sm:bottom-6 left-1/2 z-20 -translate-x-1/2 w-[calc(100%-1.5rem)] sm:w-[calc(100%-2.5rem)] min-w-0">
+              <div className="absolute bottom-4 sm:bottom-6 left-1/2 z-20 -translate-x-1/2 w-[calc(100%-1.5rem)] min-[500px]:w-[calc(100%-1rem)] sm:w-[calc(100%-2.5rem)] min-w-0">
                 <Button
                   onClick={() => scrollToSection("enquiry")}
                   variant="secondary"
                   className="w-full h-auto py-2.5 sm:py-3 px-3 sm:px-4 rounded-[2rem] bg-white/95 hover:bg-white text-slate-900 shadow-lg backdrop-blur border border-white/20 group transition-all [&>span]:w-full"
                 >
-                  <div className="relative flex items-center justify-center w-full min-w-0 py-0.5">
-                    <div className="flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2 w-full min-w-0 px-2 sm:px-4">
-                      <span className="text-[8px] sm:text-[9px] font-bold uppercase tracking-[0.05em] text-slate-500 shrink-0 sm:border-r sm:border-slate-200 sm:pr-2 dark:border-white/10">
-                        For Institutions
-                      </span>
-                      <span className="text-[9px] sm:text-xs font-extrabold leading-none text-primary text-center sm:text-left">
-                        I Need To Expand
-                      </span>
-                    </div>
-                    <ArrowRight className="absolute right-1 sm:right-2 h-3.5 w-3.5 shrink-0 text-primary transition-transform group-hover:translate-x-0.5" />
+                  <div className="flex flex-row items-center justify-center gap-1 sm:gap-2 w-full min-w-0 py-0.5">
+                    <span className="inline min-[500px]:hidden sm:inline text-[7.5px] sm:text-[9px] font-bold uppercase tracking-[0.05em] text-slate-500 shrink-0 border-r border-slate-200 pr-1.5 sm:pr-2 dark:border-white/10 whitespace-nowrap">
+                      For Institutions
+                    </span>
+                    <span className="text-[8.5px] sm:text-xs font-extrabold leading-none text-primary text-center sm:text-left whitespace-nowrap">
+                      I Need To Expand
+                    </span>
+                    <ArrowRight className="h-3.5 w-3.5 shrink-0 text-primary transition-transform group-hover:translate-x-0.5 ml-0.5" />
                   </div>
                 </Button>
               </div>
             </div>
 
             {/* Container 2: Right Image (Quarter Circle Arch Top-Left - Students) */}
-            <div className="relative h-[240px] w-[180px] sm:h-[420px] sm:w-[320px] lg:w-[340px] shrink-0">
+            <div className="relative h-[320px] w-[280px] min-[500px]:h-[320px] min-[500px]:w-[240px] sm:h-[460px] sm:w-[340px] lg:h-[500px] lg:w-[360px] shrink-0">
               {/* Decorative Background Arch */}
-              <div className="absolute -left-3 sm:-left-6 -top-3 sm:-top-6 h-full w-full rounded-br-2xl sm:rounded-br-3xl rounded-bl-2xl sm:rounded-bl-3xl rounded-tr-2xl sm:rounded-tr-3xl rounded-tl-[6rem] sm:rounded-tl-[12rem] bg-gradient-to-br from-indigo-100 via-purple-100 to-transparent dark:from-indigo-950/40 dark:via-purple-950/20 -z-10 border border-purple-200/60 dark:border-purple-800/30" />
+              <div className="absolute -left-3 sm:-left-6 -top-3 sm:-top-6 h-full w-full rounded-br-[2.5rem] rounded-bl-[2.5rem] rounded-tr-[2.5rem] min-[500px]:rounded-br-[3rem] min-[500px]:rounded-bl-[3rem] min-[500px]:rounded-tr-[3rem] sm:rounded-br-[3.5rem] sm:rounded-bl-[3.5rem] sm:rounded-tr-[3.5rem] lg:rounded-br-[4rem] lg:rounded-bl-[4rem] lg:rounded-tr-[4rem] rounded-tl-[8.5rem] min-[500px]:rounded-tl-[10rem] sm:rounded-tl-[13.5rem] lg:rounded-tl-[15rem] bg-gradient-to-br from-indigo-100 via-purple-100 to-transparent dark:from-indigo-950/40 dark:via-purple-950/20 -z-10 border border-purple-200/60 dark:border-purple-800/30" />
 
               {/* Main Image Container */}
-              <div className="relative h-full w-full overflow-hidden rounded-br-2xl sm:rounded-br-3xl rounded-bl-2xl sm:rounded-bl-3xl rounded-tr-2xl sm:rounded-tr-3xl rounded-tl-[6rem] sm:rounded-tl-[12rem] shadow-2xl border border-slate-200/60 dark:border-white/10 bg-slate-100 dark:bg-slate-800">
+              <div className="relative h-full w-full overflow-hidden rounded-br-[2.5rem] rounded-bl-[2.5rem] rounded-tr-[2.5rem] min-[500px]:rounded-br-[3rem] min-[500px]:rounded-bl-[3rem] min-[500px]:rounded-tr-[3rem] sm:rounded-br-[3.5rem] sm:rounded-bl-[3.5rem] sm:rounded-tr-[3.5rem] lg:rounded-br-[4rem] lg:rounded-bl-[4rem] lg:rounded-tr-[4rem] rounded-tl-[8.5rem] min-[500px]:rounded-tl-[10rem] sm:rounded-tl-[13.5rem] lg:rounded-tl-[15rem] shadow-2xl border border-slate-200/60 dark:border-white/10 bg-slate-100 dark:bg-slate-800">
                 <div className="absolute inset-0">
                   <Image src="/images/lifestyle_1.png" alt="Student Accommodation" fill className="object-cover" priority />
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent" />
 
                 {/* Student CTA Button Overlay */}
-                <div className="absolute bottom-3 sm:bottom-6 left-1/2 z-20 -translate-x-1/2 w-[calc(100%-1.5rem)] sm:w-[calc(100%-3rem)] min-w-0">
+                <div className="absolute bottom-4 sm:bottom-6 left-1/2 z-20 -translate-x-1/2 w-[calc(100%-1.5rem)] min-[500px]:w-[calc(100%-1rem)] sm:w-[calc(100%-3rem)] min-w-0">
                   <Button
                     href="/hostels"
                     onClick={(e) => {
@@ -144,16 +142,14 @@ const UniversitySlider = () => {
                     variant="primary"
                     className="w-full h-auto py-2.5 sm:py-3 px-3 sm:px-4 rounded-[2rem] bg-primary/95 hover:bg-primary text-white shadow-xl backdrop-blur border border-white/20 group transition-all [&>span]:w-full"
                   >
-                    <div className="relative flex items-center justify-center w-full min-w-0 py-0.5">
-                      <div className="flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2 w-full min-w-0 px-2 sm:px-4">
-                        <span className="text-[8px] sm:text-[9px] font-bold uppercase tracking-[0.05em] text-white/70 shrink-0 sm:border-r sm:border-white/15 sm:pr-2">
-                          For Students
-                        </span>
-                        <span className="text-[9px] sm:text-xs font-extrabold leading-none text-white text-center sm:text-left">
-                          I Am Looking For A Bed
-                        </span>
-                      </div>
-                      <ArrowRight className="absolute right-1 sm:right-2 h-3.5 w-3.5 shrink-0 text-white transition-transform group-hover:translate-x-0.5" />
+                    <div className="flex flex-row items-center justify-center gap-1 sm:gap-2 w-full min-w-0 py-0.5">
+                      <span className="inline min-[500px]:hidden sm:inline text-[8px] sm:text-[9px] font-bold uppercase tracking-[0.05em] text-white/70 shrink-0 border-r border-white/15 pr-1.5 sm:pr-2 whitespace-nowrap">
+                        For Students
+                      </span>
+                      <span className="text-[9px] sm:text-xs font-extrabold leading-none text-white text-center sm:text-left whitespace-nowrap">
+                        I Am Looking For A Bed
+                      </span>
+                      <ArrowRight className="h-3.5 w-3.5 shrink-0 text-white transition-transform group-hover:translate-x-0.5 ml-0.5" />
                     </div>
                   </Button>
                 </div>
