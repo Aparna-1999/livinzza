@@ -4,7 +4,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { MapPin, GraduationCap, Bed, CheckCircle2, User } from "lucide-react";
+import { MapPin, GraduationCap, Bed, CheckCircle2, User, Star } from "lucide-react";
 import { Badge } from "../atoms/Badge";
 
 interface HostelListingCardProps {
@@ -15,9 +15,10 @@ interface HostelListingCardProps {
   roomTypes: string[];
   image: string;
   price: string;
+  rating: number;
 }
 
-const HostelListingCard = ({ name, gender, city, college, roomTypes, image, price }: HostelListingCardProps) => {
+const HostelListingCard = ({ name, gender, city, college, roomTypes, image, price, rating }: HostelListingCardProps) => {
   // Extract a clean short name for college to fit nicely in the metadata row
   const shortCollege = college.replace("University", "Univ.").split("-")[0].trim();
 
@@ -67,13 +68,19 @@ const HostelListingCard = ({ name, gender, city, college, roomTypes, image, pric
       {/* Content Details */}
       <div className="flex flex-col flex-1 p-5">
         <div>
-          {/* Hostel Name */}
-          <h3 className="text-base font-bold leading-snug text-slate-900 dark:text-white line-clamp-1 group-hover:text-primary transition-colors">
-            {name}
-          </h3>
+          {/* Hostel Name & Rating */}
+          <div className="flex items-center justify-between mb-1.5 gap-2">
+            <h3 className="text-base font-bold leading-snug text-slate-900 dark:text-white line-clamp-1 group-hover:text-primary transition-colors">
+              {name}
+            </h3>
+            <div className="flex items-center gap-1 text-amber-500 font-bold text-xs shrink-0 bg-amber-500/5 px-2 py-0.5 rounded-lg border border-amber-500/10 dark:bg-amber-500/10">
+              <Star className="h-3 w-3 fill-current" />
+              <span>{rating}</span>
+            </div>
+          </div>
           
           {/* Location */}
-          <div className="mt-2 flex items-center gap-1 text-xs text-slate-500 dark:text-slate-400">
+          <div className="mt-1 flex items-center gap-1 text-xs text-slate-500 dark:text-slate-400">
             <MapPin className="h-3.5 w-3.5 shrink-0 text-primary" />
             <span className="line-clamp-1">{city}</span>
           </div>
@@ -115,4 +122,5 @@ const HostelListingCard = ({ name, gender, city, college, roomTypes, image, pric
 };
 
 export { HostelListingCard };
+
 
