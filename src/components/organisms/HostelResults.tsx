@@ -9,6 +9,7 @@ const hostelResults = [
     college: "Cochin University of Science and Technology",
     roomTypes: ["Double", "Triple", "Four Sharing", "Five Sharing", "Six Sharing"],
     image: "/images/boys_room.png",
+    price: "₹5,800",
   },
   {
     name: "Hail Mary Girls Hostel",
@@ -17,6 +18,7 @@ const hostelResults = [
     college: "Kristu Jayanti University - Main Campus",
     roomTypes: ["Single", "Double"],
     image: "/images/girls_room.png",
+    price: "₹6,200",
   },
   {
     name: "St Catherine Girls Hostel",
@@ -25,6 +27,7 @@ const hostelResults = [
     college: "Kristu Jayanti University - Airport Road Campus",
     roomTypes: ["Twin Share", "Twin Share AC", "Single"],
     image: "/images/girls_room.png",
+    price: "₹7,000",
   },
   {
     name: "Kottayam Scholar Hostel",
@@ -33,6 +36,7 @@ const hostelResults = [
     college: "Mahatma Gandhi University area",
     roomTypes: ["Double", "Triple"],
     image: "/images/boys_room.png",
+    price: "₹5,200",
   },
   {
     name: "Trivandrum Academic Residence",
@@ -41,6 +45,7 @@ const hostelResults = [
     college: "University district",
     roomTypes: ["Single", "Double", "Twin Share"],
     image: "/images/girls_room.png",
+    price: "₹6,400",
   },
   {
     name: "Calicut Verified Stay",
@@ -49,6 +54,7 @@ const hostelResults = [
     college: "Calicut educational corridor",
     roomTypes: ["Double", "Triple", "Four Sharing"],
     image: "/images/boys_room.png",
+    price: "₹5,500",
   },
   {
     name: "North Bangalore Student Residence",
@@ -57,6 +63,7 @@ const hostelResults = [
     college: "Reva University / Several Colleges",
     roomTypes: ["Single", "Double", "Triple"],
     image: "/images/boys_room.png",
+    price: "₹8,500",
   },
   {
     name: "Premium Girls Hostel",
@@ -65,6 +72,7 @@ const hostelResults = [
     college: "Kristu Jayanti University - Main Campus",
     roomTypes: ["Single", "Double", "Twin Share"],
     image: "/images/girls_room.png",
+    price: "₹7,200",
   },
   {
     name: "Bangalore Academic Stay",
@@ -73,6 +81,7 @@ const hostelResults = [
     college: "Kristu Jayanti University - Airport Road Campus",
     roomTypes: ["Double", "Triple"],
     image: "/images/lifestyle_1.png",
+    price: "₹6,500",
   },
   {
     name: "Parent-Approved Girls Hostel",
@@ -81,6 +90,7 @@ const hostelResults = [
     college: "Kristu Jayanti University",
     roomTypes: ["Single", "Double"],
     image: "/images/lifestyle_2.png",
+    price: "₹6,800",
   },
   {
     name: "Christ College Executive Stay",
@@ -89,6 +99,7 @@ const hostelResults = [
     college: "Christ University",
     roomTypes: ["Single", "Double Sharing AC"],
     image: "/images/christ_university.png",
+    price: "₹9,200",
   },
   {
     name: "Jain University Elite Residence",
@@ -97,6 +108,7 @@ const hostelResults = [
     college: "Jain University",
     roomTypes: ["Single", "Double Sharing AC", "Triple Sharing"],
     image: "/images/jain_university.png",
+    price: "₹8,900",
   },
   {
     name: "VIT Vellore Campus Linked Stay",
@@ -105,6 +117,7 @@ const hostelResults = [
     college: "VIT Vellore",
     roomTypes: ["Single", "Double", "Triple"],
     image: "/images/vit_vellore.png",
+    price: "₹7,500",
   },
   {
     name: "Kochi Marine Drive Student Housing",
@@ -113,6 +126,7 @@ const hostelResults = [
     college: "Cochin University of Science and Technology",
     roomTypes: ["Double", "Triple"],
     image: "/images/kochi.png",
+    price: "₹6,900",
   },
   {
     name: "Delhi University Scholars Home",
@@ -121,6 +135,7 @@ const hostelResults = [
     college: "Delhi University",
     roomTypes: ["Single", "Double", "Triple"],
     image: "/images/delhi_university.png",
+    price: "₹8,100",
   },
   {
     name: "Kottayam Garden Residence",
@@ -129,8 +144,10 @@ const hostelResults = [
     college: "Mahatma Gandhi University area",
     roomTypes: ["Double", "Triple"],
     image: "/images/kottayam.png",
+    price: "₹6,200",
   },
 ];
+
 
 interface HostelResultsProps {
   citySlug?: string;
@@ -161,7 +178,7 @@ const HostelResults = ({ citySlug, collegeQuery, hostelQuery }: HostelResultsPro
     <section className="bg-slate-50 pb-24 dark:bg-slate-950">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {filteredResults.length > 0 ? (
-          <div className="space-y-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {filteredResults.map((hostel) => (
               <HostelListingCard key={hostel.name} {...hostel} />
             ))}
