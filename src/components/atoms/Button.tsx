@@ -46,8 +46,9 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     };
 
     if (href) {
+      const { whileHover, whileTap, ...restProps } = sharedProps;
       return (
-        <Link href={href} className={sharedProps.className}>
+        <Link href={href} {...(restProps as any)}>
           {isLoading ? (
             <div className="mr-2 h-4 w-4 animate-spin rounded-full border-2 border-current border-t-transparent" />
           ) : null}

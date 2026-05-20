@@ -20,10 +20,9 @@ const UniversitySlider = () => {
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
-    if (searchQuery.trim()) {
-      window.location.href = `/hostels?search=${encodeURIComponent(searchQuery.trim())}`;
-    } else {
-      scrollToSection("enquiry");
+    const element = document.getElementById("hostels");
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
     }
   };
 
@@ -135,6 +134,13 @@ const UniversitySlider = () => {
                 <div className="absolute bottom-3 sm:bottom-6 left-1/2 z-20 -translate-x-1/2 w-[calc(100%-1.5rem)] sm:w-[calc(100%-3rem)] min-w-0">
                   <Button
                     href="/hostels"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      const element = document.getElementById("hostels");
+                      if (element) {
+                        element.scrollIntoView({ behavior: "smooth" });
+                      }
+                    }}
                     variant="primary"
                     className="w-full h-auto py-2.5 sm:py-3 px-3 sm:px-4 rounded-[2rem] bg-primary/95 hover:bg-primary text-white shadow-xl backdrop-blur border border-white/20 group transition-all [&>span]:w-full"
                   >

@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Logo } from "../atoms/Logo";
 import { Button } from "../atoms/Button";
 import { NavLinks } from "../molecules/NavLinks";
@@ -11,6 +12,18 @@ import { CitySelector } from "../molecules/CitySelector";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
+
+  const handleHeaderBtnClick = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
+    if (pathname === "/") {
+      e.preventDefault();
+      setIsOpen(false);
+      const element = document.getElementById(targetId);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  };
 
   const scrollToSection = (e: React.MouseEvent, id: string) => {
     e.preventDefault();
@@ -36,10 +49,10 @@ const Header = () => {
 
           <div className="hidden items-center gap-3 md:flex">
             <ThemeToggle />
-            <Button href="/hostels" variant="outline" size="sm" className="rounded-full border-slate-200 bg-transparent px-4 text-slate-700 hover:bg-slate-100 dark:border-white/15 dark:text-slate-100 dark:hover:bg-white/10">
+            <Button href="/hostels" onClick={(e) => handleHeaderBtnClick(e as any, "hostels")} variant="outline" size="sm" className="rounded-full border-slate-200 bg-transparent px-4 text-slate-700 hover:bg-slate-100 dark:border-white/15 dark:text-slate-100 dark:hover:bg-white/10">
               View listings
             </Button>
-            <Button href="/know-more" variant="secondary" size="sm" className="rounded-full border-slate-200 bg-primary text-white px-4 hover:bg-primary-hover dark:border-white/10">
+            <Button href="/know-more" onClick={(e) => handleHeaderBtnClick(e as any, "app-features")} variant="secondary" size="sm" className="rounded-full border-slate-200 bg-primary text-white px-4 hover:bg-primary-hover dark:border-white/10">
               Know More
             </Button>
           </div>
@@ -75,10 +88,10 @@ const Header = () => {
           <div className="border-t border-slate-200 py-4 md:hidden dark:border-white/10">
             <NavLinks className="flex-col items-start gap-4" />
             <div className="mt-6 flex flex-col gap-3">
-              <Button href="/hostels" variant="outline" className="w-full rounded-full border-slate-200 text-slate-700 hover:bg-slate-100 dark:border-white/15 dark:text-slate-100 dark:hover:bg-white/10">
+              <Button href="/hostels" onClick={(e) => handleHeaderBtnClick(e as any, "hostels")} variant="outline" className="w-full rounded-full border-slate-200 text-slate-700 hover:bg-slate-100 dark:border-white/15 dark:text-slate-100 dark:hover:bg-white/10">
                 View listings
               </Button>
-              <Button href="/know-more" variant="secondary" className="w-full rounded-full bg-primary text-white hover:bg-primary-hover">
+              <Button href="/know-more" onClick={(e) => handleHeaderBtnClick(e as any, "app-features")} variant="secondary" className="w-full rounded-full bg-primary text-white hover:bg-primary-hover">
                 Know More
               </Button>
               <Button onClick={(e) => scrollToSection(e, "enquiry")} className="w-full rounded-full">

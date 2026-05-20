@@ -73,7 +73,14 @@ const CitySelectorContent = () => {
     localStorage.setItem("selected_city", cityName);
     setSelectedCity(cityName);
     setIsOpen(false);
-    window.location.href = `/hostels?city=${citySlug}`;
+    if (window.location.pathname === "/") {
+      const element = document.getElementById("hostels");
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    } else {
+      window.location.href = `/hostels?city=${citySlug}`;
+    }
   };
 
   return (

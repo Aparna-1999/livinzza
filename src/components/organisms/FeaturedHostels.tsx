@@ -137,7 +137,18 @@ const FeaturedHostels = () => {
               Hand-picked stays with clear pricing, credible visuals, and a standard of care that gives students and parents confidence.
             </Typography>
           </div>
-          <Button href="/hostels" variant="outline" className="hidden rounded-full border-slate-300 bg-white px-6 text-slate-700 hover:bg-slate-100 lg:flex dark:border-white/15 dark:bg-transparent dark:text-slate-100 dark:hover:bg-white/10">
+          <Button
+            href="/hostels"
+            onClick={(e) => {
+              e.preventDefault();
+              const element = document.getElementById("hostels");
+              if (element) {
+                element.scrollIntoView({ behavior: "smooth" });
+              }
+            }}
+            variant="outline"
+            className="hidden rounded-full border-slate-300 bg-white px-6 text-slate-700 hover:bg-slate-100 lg:flex dark:border-white/15 dark:bg-transparent dark:text-slate-100 dark:hover:bg-white/10"
+          >
             View all hostels
           </Button>
         </div>
@@ -183,7 +194,18 @@ const FeaturedHostels = () => {
       </div>
 
       <div className="mt-12 text-center lg:hidden px-4">
-        <Button href="/hostels" variant="outline" className="w-full rounded-full border-slate-300 bg-white px-6 text-slate-700 hover:bg-slate-100 sm:w-auto dark:border-white/15 dark:bg-transparent dark:text-slate-100 dark:hover:bg-white/10">
+        <Button
+          href="/hostels"
+          onClick={(e) => {
+            e.preventDefault();
+            const element = document.getElementById("hostels");
+            if (element) {
+              element.scrollIntoView({ behavior: "smooth" });
+            }
+          }}
+          variant="outline"
+          className="w-full rounded-full border-slate-300 bg-white px-6 text-slate-700 hover:bg-slate-100 sm:w-auto dark:border-white/15 dark:bg-transparent dark:text-slate-100 dark:hover:bg-white/10"
+        >
           View all hostels
         </Button>
       </div>
