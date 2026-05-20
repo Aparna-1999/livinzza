@@ -3,6 +3,7 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme inline {
+  --font-sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
   --color-primary: #006eeb;
   --color-primary-hover: #0059c4;
   --color-secondary: #0f172a;
