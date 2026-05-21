@@ -49,7 +49,7 @@ const Header = () => {
 
           <div className="hidden items-center gap-3 md:flex">
             <ThemeToggle />
-            <Button href="/hostels" onClick={(e) => handleHeaderBtnClick(e as any, "hostels")} variant="outline" size="sm" className="rounded-full border-slate-200 bg-transparent px-4 text-slate-700 hover:bg-slate-100 dark:border-white/15 dark:text-slate-100 dark:hover:bg-white/10">
+            <Button href="/hostels" variant="outline" size="sm" className="rounded-full border-slate-200 bg-transparent px-4 text-slate-700 hover:bg-slate-100 dark:border-white/15 dark:text-slate-100 dark:hover:bg-white/10">
               View listings
             </Button>
             <Button href="/know-more" onClick={(e) => handleHeaderBtnClick(e as any, "app-features")} variant="secondary" size="sm" className="rounded-full border-slate-200 bg-primary text-white px-4 hover:bg-primary-hover dark:border-white/10">
@@ -88,7 +88,7 @@ const Header = () => {
           <div className="border-t border-slate-200 py-4 md:hidden dark:border-white/10">
             <NavLinks className="flex-col items-start gap-4" />
             <div className="mt-6 flex flex-col gap-3">
-              <Button href="/hostels" onClick={(e) => handleHeaderBtnClick(e as any, "hostels")} variant="outline" className="w-full rounded-full border-slate-200 text-slate-700 hover:bg-slate-100 dark:border-white/15 dark:text-slate-100 dark:hover:bg-white/10">
+              <Button href="/hostels" variant="outline" className="w-full rounded-full border-slate-200 text-slate-700 hover:bg-slate-100 dark:border-white/15 dark:text-slate-100 dark:hover:bg-white/10">
                 View listings
               </Button>
               <Button href="/know-more" onClick={(e) => handleHeaderBtnClick(e as any, "app-features")} variant="secondary" className="w-full rounded-full bg-primary text-white hover:bg-primary-hover">

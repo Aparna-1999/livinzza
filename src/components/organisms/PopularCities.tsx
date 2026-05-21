@@ -241,18 +241,7 @@ const citiesList = [
 
 const PopularCities = () => {
   const selectCity = (slug: string) => {
-    // Dynamically update the city selection in the CitySelector logic by finding and clicking the city button
-    // or trigger smooth scroll to the hostels search section
-    const targetElement = document.getElementById("hostels");
-    if (targetElement) {
-      targetElement.scrollIntoView({ behavior: "smooth" });
-    }
-    
-    // Find the CitySelector button on the page if present, and programmatically set the active city
-    const selectorBtn = document.querySelector(`[data-city-btn="${slug}"]`) as HTMLButtonElement;
-    if (selectorBtn) {
-      selectorBtn.click();
-    }
+    window.location.href = `/hostels?city=${slug}`;
   };
 
   return (
