@@ -28,7 +28,7 @@ import { MainLayout } from "../templates/MainLayout";
 import { Typography } from "../atoms/Typography";
 import { Button } from "../atoms/Button";
 import { HostelListingCard } from "../molecules/HostelListingCard";
-import { hostelResults } from "../organisms/HostelResults";
+import { HostelResults, hostelResults } from "../organisms/HostelResults";
 
 interface CityDetailProps {
   citySlug: string;
@@ -60,11 +60,6 @@ const CityDetail = ({ citySlug }: CityDetailProps) => {
   const cleanSlug = citySlug.toLowerCase();
   const cityName = CITY_NAME_MAP[cleanSlug] || citySlug.charAt(0).toUpperCase() + citySlug.slice(1);
   const cityMotto = CITY_MOTTO_MAP[cleanSlug] || "Premium Shared Accommodations & Student Stays";
-
-  // Filter hostels that belong to this city
-  const matchedHostels = hostelResults.filter((hostel) =>
-    hostel.city.toLowerCase().includes(cleanSlug)
-  );
 
   // Form State
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -154,8 +149,8 @@ const CityDetail = ({ citySlug }: CityDetailProps) => {
         {/* Centered Main Content Area */}
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full">
           
-          {/* 1. Breadcrumbs & Found it! Header */}
-          <div className="mb-10 text-left">
+          {/* 1. Breadcrumbs */}
+          <div className="mb-8 text-left">
             <nav className="flex mb-5 text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest items-center gap-2">
               <Link href="/" className="hover:text-primary transition-colors flex items-center gap-1 group">
                 <Home className="h-3.5 w-3.5 group-hover:scale-105 transition-transform" /> Home
@@ -165,44 +160,11 @@ const CityDetail = ({ citySlug }: CityDetailProps) => {
               <ChevronRight className="h-3 w-3" />
               <span className="text-primary font-black tracking-widest">{cityName}</span>
             </nav>
-
-            <Typography
-              variant="h2"
-              className="text-2xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white"
-            >
-              Found it! <span className="text-primary font-black underline decoration-wavy decoration-primary decoration-2 underline-offset-6">{matchedHostels.length} amazing</span> {matchedHostels.length === 1 ? "place" : "places"} waiting for you!
-            </Typography>
           </div>
 
-          {/* 2. Listings Grid */}
+          {/* 2. Premium Search Results, Sidebar Filters, & Map View */}
           <div className="mb-20">
-            {matchedHostels.length > 0 ? (
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                {matchedHostels.map((hostel, index) => (
-                  <motion.div
-                    initial={{ opacity: 0, y: 15 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.4, delay: index * 0.05 }}
-                    key={hostel.name}
-                  >
-                    <HostelListingCard {...hostel} />
-                  </motion.div>
-                ))}
-              </div>
-            ) : (
-              <div className="rounded-[2.5rem] border border-slate-200 dark:border-white/10 bg-white dark:bg-slate-900 p-16 text-center shadow-sm">
-                <Building className="h-12 w-12 text-slate-300 dark:text-slate-700 mx-auto mb-4" />
-                <Typography variant="h3" className="text-xl font-bold text-slate-800 dark:text-white mb-2">
-                  No Hostels Registered Yet
-                </Typography>
-                <Typography variant="p" className="text-sm text-slate-500 dark:text-slate-400 max-w-md mx-auto">
-                  We are actively partnering with premium hosts in {cityName} to bring you verified listings soon. Please check back shortly!
-                </Typography>
-                <Button href="/" variant="primary" className="mt-6 rounded-full px-6 font-bold shadow-md">
-                  Back to Homepage
-                </Button>
-              </div>
-            )}
+            <HostelResults citySlug={citySlug} />
           </div>
 
           {/* 4. Signature Amenities & Services */}
