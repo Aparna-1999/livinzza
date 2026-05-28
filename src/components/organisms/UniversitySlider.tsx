@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { Typography } from "../atoms/Typography";
 import { Button } from "../atoms/Button";
@@ -88,65 +89,70 @@ const UniversitySlider = () => {
             </motion.div>
           </div>
 
-          {/* Right Column: The Two Beautiful Image Containers */}
-          <div className="relative flex flex-col min-[500px]:flex-row items-center justify-center gap-6 sm:gap-8 lg:gap-10 py-6 w-full max-w-full overflow-hidden sm:overflow-visible">
-            {/* Container 1: Left Image (Tall Pill - Institutions) */}
-            <div className="relative h-[380px] w-[260px] min-[500px]:h-[360px] min-[500px]:w-[200px] sm:h-[500px] sm:w-[280px] lg:h-[540px] lg:w-[300px] shrink-0 overflow-hidden rounded-[3rem] min-[500px]:rounded-[3.5rem] sm:rounded-[4rem] lg:rounded-[4.5rem] shadow-2xl border border-slate-200/60 dark:border-white/10 bg-slate-100 dark:bg-slate-800 animate-fadeIn">
+          {/* Right Column: Stacking two landscape containers vertically matching the 2nd screenshot */}
+          <div className="relative flex flex-col gap-6 sm:gap-8 w-full max-w-full py-4 justify-center">
+            {/* Top Card: Institutions (Horizontal Landscape Building Card with white overlay card on the right) */}
+            <div className="relative h-[200px] sm:h-[230px] lg:h-[250px] w-full overflow-hidden rounded-3xl shadow-xl border border-slate-200/60 dark:border-white/10 bg-slate-100 dark:bg-slate-800 animate-fadeIn">
               <div className="absolute inset-0">
-                <Image src="/images/slider_3_network.png" alt="Institutional Solutions" fill className="object-cover" priority />
+                <Image
+                  src="/images/slider_3_network.png"
+                  alt="Institutional Solutions"
+                  fill
+                  className="object-cover"
+                  priority
+                />
+                <div className="absolute inset-0 bg-slate-950/10 dark:bg-slate-950/30" />
               </div>
 
-              {/* Institutional CTA Button Overlay */}
-              <div className="absolute bottom-4 sm:bottom-6 left-1/2 z-20 -translate-x-1/2 w-[calc(100%-1.5rem)] min-[500px]:w-[calc(100%-1rem)] sm:w-[calc(100%-2.5rem)] min-w-0">
-                <Button
-                  onClick={() => scrollToSection("enquiry")}
-                  variant="secondary"
-                  className="w-full h-auto py-2.5 sm:py-3 px-3 sm:px-4 rounded-[2rem] bg-white/95 hover:bg-white text-slate-900 shadow-lg backdrop-blur border border-white/20 group transition-all [&>span]:w-full"
-                >
-                  <div className="flex flex-row items-center justify-center gap-1 sm:gap-2 w-full min-w-0 py-0.5">
-                    <span className="inline min-[500px]:hidden sm:inline text-[7.5px] sm:text-[9px] font-bold uppercase tracking-[0.05em] text-slate-500 shrink-0 border-r border-slate-200 pr-1.5 sm:pr-2 dark:border-white/10 whitespace-nowrap">
-                      For Institutions
-                    </span>
-                    <span className="text-[8.5px] sm:text-xs font-extrabold leading-none text-primary text-center sm:text-left whitespace-nowrap">
-                      I Need To Expand
-                    </span>
-                    <ArrowRight className="h-3.5 w-3.5 shrink-0 text-primary transition-transform group-hover:translate-x-0.5 ml-0.5" />
-                  </div>
-                </Button>
-              </div>
+              {/* White Overlay Box on the Right */}
+              <button
+                onClick={() => scrollToSection("enquiry")}
+                className="absolute left-4 right-4 sm:left-auto sm:right-6 top-1/2 -translate-y-1/2 bg-white/95 dark:bg-slate-900/95 hover:bg-white dark:hover:bg-slate-900 p-5 sm:p-6 rounded-2xl shadow-xl border border-slate-100 dark:border-slate-800 text-left sm:w-[300px] lg:w-[320px] transition-all hover:scale-[1.02] flex items-center justify-between gap-4 group"
+              >
+                <div className="min-w-0 flex-1">
+                  <span className="text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.12em] text-slate-400 block mb-1">
+                    For Institutions
+                  </span>
+                  <span className="text-sm sm:text-base font-extrabold leading-snug text-slate-900 dark:text-white block hover:text-primary transition-colors">
+                    I Need To Expand My Campus Housing
+                  </span>
+                </div>
+                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 transition-transform group-hover:translate-x-1">
+                  <ArrowRight className="h-4 w-4 text-primary" />
+                </div>
+              </button>
             </div>
 
-            {/* Container 2: Right Image (Quarter Circle Arch Top-Left - Students) */}
-            <div className="relative h-[320px] w-[280px] min-[500px]:h-[320px] min-[500px]:w-[240px] sm:h-[460px] sm:w-[340px] lg:h-[500px] lg:w-[360px] shrink-0">
-              {/* Decorative Background Arch */}
-              <div className="absolute -left-3 sm:-left-6 -top-3 sm:-top-6 h-full w-full rounded-br-[2.5rem] rounded-bl-[2.5rem] rounded-tr-[2.5rem] min-[500px]:rounded-br-[3rem] min-[500px]:rounded-bl-[3rem] min-[500px]:rounded-tr-[3rem] sm:rounded-br-[3.5rem] sm:rounded-bl-[3.5rem] sm:rounded-tr-[3.5rem] lg:rounded-br-[4rem] lg:rounded-bl-[4rem] lg:rounded-tr-[4rem] rounded-tl-[8.5rem] min-[500px]:rounded-tl-[10rem] sm:rounded-tl-[13.5rem] lg:rounded-tl-[15rem] bg-gradient-to-br from-indigo-100 via-purple-100 to-transparent dark:from-indigo-950/40 dark:via-purple-950/20 -z-10 border border-purple-200/60 dark:border-purple-800/30" />
-
-              {/* Main Image Container */}
-              <div className="relative h-full w-full overflow-hidden rounded-br-[2.5rem] rounded-bl-[2.5rem] rounded-tr-[2.5rem] min-[500px]:rounded-br-[3rem] min-[500px]:rounded-bl-[3rem] min-[500px]:rounded-tr-[3rem] sm:rounded-br-[3.5rem] sm:rounded-bl-[3.5rem] sm:rounded-tr-[3.5rem] lg:rounded-br-[4rem] lg:rounded-bl-[4rem] lg:rounded-tr-[4rem] rounded-tl-[8.5rem] min-[500px]:rounded-tl-[10rem] sm:rounded-tl-[13.5rem] lg:rounded-tl-[15rem] shadow-2xl border border-slate-200/60 dark:border-white/10 bg-slate-100 dark:bg-slate-800">
-                <div className="absolute inset-0">
-                  <Image src="/images/lifestyle_1.png" alt="Student Accommodation" fill className="object-cover" priority />
-                </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent" />
-
-                {/* Student CTA Button Overlay */}
-                <div className="absolute bottom-4 sm:bottom-6 left-1/2 z-20 -translate-x-1/2 w-[calc(100%-1.5rem)] min-[500px]:w-[calc(100%-1rem)] sm:w-[calc(100%-3rem)] min-w-0">
-                  <Button
-                    href="/hostels"
-                    variant="primary"
-                    className="w-full h-auto py-2.5 sm:py-3 px-3 sm:px-4 rounded-[2rem] bg-primary/95 hover:bg-primary text-white shadow-xl backdrop-blur border border-white/20 group transition-all [&>span]:w-full"
-                  >
-                    <div className="flex flex-row items-center justify-center gap-1 sm:gap-2 w-full min-w-0 py-0.5">
-                      <span className="inline min-[500px]:hidden sm:inline text-[8px] sm:text-[9px] font-bold uppercase tracking-[0.05em] text-white/70 shrink-0 border-r border-white/15 pr-1.5 sm:pr-2 whitespace-nowrap">
-                        For Students
-                      </span>
-                      <span className="text-[9px] sm:text-xs font-extrabold leading-none text-white text-center sm:text-left whitespace-nowrap">
-                        I Am Looking For A Bed
-                      </span>
-                      <ArrowRight className="h-3.5 w-3.5 shrink-0 text-white transition-transform group-hover:translate-x-0.5 ml-0.5" />
-                    </div>
-                  </Button>
-                </div>
+            {/* Bottom Card: Students (Horizontal Landscape Room Card with blue overlay card on the left) */}
+            <div className="relative h-[200px] sm:h-[230px] lg:h-[250px] w-full overflow-hidden rounded-3xl shadow-xl border border-slate-200/60 dark:border-white/10 bg-slate-100 dark:bg-slate-800 animate-fadeIn">
+              <div className="absolute inset-0">
+                <Image
+                  src="/images/lifestyle_1.png"
+                  alt="Student Accommodation"
+                  fill
+                  className="object-cover"
+                  priority
+                />
+                <div className="absolute inset-0 bg-slate-950/10 dark:bg-slate-950/30" />
               </div>
+
+              {/* Blue Overlay Box on the Left */}
+              <Link
+                href="/hostels"
+                className="absolute left-4 right-4 sm:right-auto sm:left-6 top-1/2 -translate-y-1/2 bg-primary hover:bg-primary-hover p-5 sm:p-6 rounded-2xl shadow-xl text-left sm:w-[300px] lg:w-[320px] transition-all hover:scale-[1.02] flex items-center justify-between gap-4 group"
+              >
+                <div className="min-w-0 flex-1">
+                  <span className="text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.12em] text-white/70 block mb-1">
+                    For Students
+                  </span>
+                  <span className="text-sm sm:text-base font-extrabold leading-snug text-white block">
+                    I Am Looking For A Bed
+                  </span>
+                </div>
+                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white/10 text-white transition-transform group-hover:translate-x-1">
+                  <ArrowRight className="h-4 w-4" />
+                </div>
+              </Link>
             </div>
           </div>
         </div>
