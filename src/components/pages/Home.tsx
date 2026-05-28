@@ -5,8 +5,6 @@ import { FeaturedHostels } from "../organisms/FeaturedHostels";
 import { CollegeGrid } from "../organisms/CollegeGrid";
 import { ProcessSection } from "../organisms/ProcessSection";
 import { AppFeaturesSection } from "../organisms/AppFeaturesSection";
-import { LifestyleGallerySection } from "../organisms/LifestyleGallerySection";
-import { MissionVisionSection } from "../organisms/MissionVisionSection";
 import { FAQ } from "../organisms/FAQ";
 import { EnquiryFlexSection } from "../organisms/EnquiryFlexSection";
 import { TrustedHousingStandard } from "../organisms/TrustedHousingStandard";
@@ -24,8 +22,6 @@ const HomePage = () => {
       <CollegeGrid />
       <ProcessSection />
       <AppFeaturesSection />
-      <LifestyleGallerySection />
-      <MissionVisionSection />
       <FAQ />
       <EnquiryFlexSection />
     </MainLayout>
