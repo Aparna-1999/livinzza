@@ -24,7 +24,7 @@ import { Button } from "../atoms/Button";
 import { Typography } from "../atoms/Typography";
 import { motion, AnimatePresence } from "framer-motion";
 
-const hostelResults = [
+export const hostelResults = [
   {
     name: "Nest Boys Hostel",
     gender: "Male" as const,
@@ -216,6 +216,114 @@ const hostelResults = [
     rating: 4.7,
     amenities: ["Wifi", "Food"],
     mapCoords: { x: 55, y: 85 }
+  },
+  {
+    name: "HooLiv Heights",
+    gender: "Female" as const,
+    city: "Pune, Maharashtra",
+    college: "EON IT Park & Colleges near Kharadi",
+    roomTypes: ["Single Sharing", "Double Sharing", "Triple Sharing"],
+    image: "/images/girls_room.png",
+    price: "₹18,000",
+    rating: 4.8,
+    amenities: ["Wifi", "AC", "Food", "Single Room"],
+    mapCoords: { x: 85, y: 40 }
+  },
+  {
+    name: "HooLiv Cornerstone",
+    gender: "Male" as const,
+    city: "Pune, Maharashtra",
+    college: "Symbiosis & Wadgaonsheri educational cluster",
+    roomTypes: ["Single Sharing", "Double Sharing", "Triple Sharing"],
+    image: "/images/boys_room.png",
+    price: "₹10,000",
+    rating: 4.6,
+    amenities: ["Wifi", "Food"],
+    mapCoords: { x: 90, y: 45 }
+  },
+  {
+    name: "HooLiv Social",
+    gender: "Female" as const,
+    city: "Pune, Maharashtra",
+    college: "Hinjewadi IT & Engineering Colleges",
+    roomTypes: ["Single Sharing", "Double Sharing", "Triple Sharing"],
+    image: "/images/lifestyle_3.png",
+    price: "₹8,000",
+    rating: 4.7,
+    amenities: ["Wifi", "AC", "Food"],
+    mapCoords: { x: 20, y: 50 }
+  },
+  {
+    name: "HooLiv Nova",
+    gender: "Male" as const,
+    city: "Pune, Maharashtra",
+    college: "Sinhagad Institute Ambegaon",
+    roomTypes: ["Single Sharing", "Triple Sharing"],
+    image: "/images/boys_room.png",
+    price: "₹5,500",
+    rating: 4.4,
+    amenities: ["Wifi"],
+    mapCoords: { x: 45, y: 80 }
+  },
+  {
+    name: "HooLiv Grace",
+    gender: "Female" as const,
+    city: "Pune, Maharashtra",
+    college: "Sinhagad Institute Vadgaon Budruk",
+    roomTypes: ["Single Sharing", "Double Sharing", "Triple Sharing"],
+    image: "/images/girls_room.png",
+    price: "₹6,000",
+    rating: 4.5,
+    amenities: ["Wifi", "Food"],
+    mapCoords: { x: 40, y: 78 }
+  },
+  {
+    name: "HooLiv Oscar",
+    gender: "Male" as const,
+    city: "Pune, Maharashtra",
+    college: "Balewadi & Baner Higher Education",
+    roomTypes: ["Single Sharing", "Double Sharing", "Triple Sharing"],
+    image: "/images/lifestyle_4.png",
+    price: "₹19,500",
+    rating: 4.9,
+    amenities: ["Wifi", "AC", "Single Room", "Food"],
+    mapCoords: { x: 30, y: 35 }
+  },
+  {
+    name: "HooLiv Titan",
+    gender: "Male" as const,
+    city: "Pune, Maharashtra",
+    college: "Sinhagad Vadgaon Campus district",
+    roomTypes: ["Single Sharing", "Double Sharing", "Triple Sharing"],
+    image: "/images/boys_room.png",
+    price: "₹3,999",
+    rating: 4.3,
+    amenities: ["Wifi"],
+    mapCoords: { x: 42, y: 82 }
+  },
+  {
+    name: "HooLiv Arcadia",
+    gender: "Female" as const,
+    city: "Pune, Maharashtra",
+    college: "Symbiosis Viman Nagar / Sanjay Park",
+    roomTypes: ["Single Sharing", "Double Sharing", "Triple Sharing"],
+    image: "/images/girls_room.png",
+    price: "₹11,999",
+    rating: 4.8,
+    amenities: ["Wifi", "AC", "Food", "Single Room"],
+    mapCoords: { x: 95, y: 38 }
+  },
+  {
+    name: "HooLiv Ariana",
+    gender: "Female" as const,
+    city: "Pune, Maharashtra",
+    college: "Moze College / Balewadi Highway Campus",
+    roomTypes: ["Single Sharing", "Double Sharing", "Triple Sharing"],
+    image: "/images/lifestyle_1.png",
+    price: "₹12,000",
+    rating: 4.7,
+    amenities: ["Wifi", "AC", "Food"],
+    mapCoords: { x: 32, y: 38 }
   }
 ];
 
@@ -231,7 +339,8 @@ const CITY_NAME_BY_SLUG: Record<string, string> = {
   vellore: "Vellore",
   calicut: "Calicut",
   "delhi-ncr": "Delhi NCR",
-  kottayam: "Kottayam"
+  kottayam: "Kottayam",
+  pune: "Pune"
 };
 
 const HostelResults = ({ citySlug, collegeQuery, hostelQuery }: HostelResultsProps) => {

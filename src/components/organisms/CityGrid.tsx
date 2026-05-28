@@ -194,7 +194,7 @@ const CityGrid = () => {
               whileHover={{ y: -4 }}
               className="group flex flex-col w-[280px] sm:w-[300px] shrink-0 bg-white dark:bg-slate-900 rounded-2xl p-4 border border-slate-200/80 dark:border-white/10 shadow-sm hover:shadow-md transition-all duration-300"
             >
-              <Link href={`/hostels?city=${city.slug}`} className="flex flex-col outline-none">
+              <Link href={`/city/${city.slug}`} className="flex flex-col outline-none">
                 {/* Top Row: Header & Arrow Button */}
                 <div className="flex items-center justify-between mb-4">
                   <div>

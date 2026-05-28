@@ -4,6 +4,7 @@ export const CITY_FILTERS = [
   { label: "Kottayam", slug: "kottayam" },
   { label: "Trivandrum", slug: "trivandrum" },
   { label: "Calicut", slug: "calicut" },
+  { label: "Pune", slug: "pune" },
 ] as const;
 
 export const CITY_LABEL_BY_SLUG = CITY_FILTERS.reduce<Record<string, string>>((acc, city) => {

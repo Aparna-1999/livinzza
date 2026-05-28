@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, Suspense } from "react";
 import Image from "next/image";
-import { useSearchParams } from "next/navigation";
+import { useSearchParams, usePathname, useRouter } from "next/navigation";
 import { MapPin, ChevronDown, X, Sparkles } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Typography } from "../atoms/Typography";
@@ -38,14 +38,44 @@ const cities = [
     image: "/images/calicut.png",
     state: "Kerala",
   },
+  {
+    name: "Pune",
+    slug: "pune",
+    image: "/images/lifestyle_1.png",
+    state: "Maharashtra",
+  },
 ];
 
 const CitySelectorContent = () => {
   const [isOpen, setIsOpen] = useState(false);
   const searchParams = useSearchParams();
+  const pathname = usePathname();
   const [selectedCity, setSelectedCity] = useState("Select City");
 
+  const router = useRouter();
+
   useEffect(() => {
+    // 1. Check path slug first, e.g. /city/kochi or /city/pune
+    if (pathname && pathname.startsWith("/city/")) {
+      const slugFromPath = pathname.split("/city/")[1]?.split("/")[0];
+      if (slugFromPath) {
+        const match = cities.find((c) => c.slug === slugFromPath.toLowerCase() || slugFromPath.toLowerCase().includes(c.slug));
+        if (match) {
+          setSelectedCity(match.name);
+          localStorage.setItem("selected_city", match.name);
+          
+          if (searchParams?.get("selectCity") === "true") {
+            setIsOpen(true);
+            const url = new URL(window.location.href);
+            url.searchParams.delete("selectCity");
+            window.history.replaceState({}, "", url.toString());
+          }
+          return;
+        }
+      }
+    }
+
+    // 2. Check search params next
     const citySlug = searchParams?.get("city");
     if (citySlug) {
       const match = cities.find((c) => c.slug === citySlug.toLowerCase() || citySlug.toLowerCase().includes(c.slug));
@@ -54,10 +84,12 @@ const CitySelectorContent = () => {
         localStorage.setItem("selected_city", match.name);
       }
     } else {
-      // fallback to localstorage
+      // 3. Fallback to localstorage
       const saved = localStorage.getItem("selected_city");
       if (saved) {
         setSelectedCity(saved);
+      } else {
+        setSelectedCity("Select City");
       }
     }
 
@@ -67,13 +99,13 @@ const CitySelectorContent = () => {
       url.searchParams.delete("selectCity");
       window.history.replaceState({}, "", url.toString());
     }
-  }, [searchParams]);
+  }, [pathname, searchParams]);
 
   const selectCity = (citySlug: string, cityName: string) => {
     localStorage.setItem("selected_city", cityName);
     setSelectedCity(cityName);
     setIsOpen(false);
-    window.location.href = `/hostels?city=${citySlug}`;
+    router.push(`/city/${citySlug}`);
   };
 
   return (
@@ -107,10 +139,10 @@ const CitySelectorContent = () => {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
               transition={{ duration: 0.3, ease: "easeOut" }}
-              className="relative w-full max-w-3xl overflow-hidden rounded-[2.5rem] border border-slate-200 bg-white shadow-2xl dark:border-white/10 dark:bg-slate-950"
+              className="relative w-full max-w-3xl max-h-[90vh] flex flex-col rounded-[2.5rem] border border-slate-200 bg-white shadow-2xl dark:border-white/10 dark:bg-slate-950"
             >
               {/* Header */}
-              <div className="flex items-center justify-between border-b border-slate-200/80 px-6 sm:px-8 py-5 dark:border-white/10">
+              <div className="flex items-center justify-between border-b border-slate-200/80 px-6 sm:px-8 py-5 dark:border-white/10 shrink-0">
                 <div className="flex items-center gap-2">
                   <Sparkles className="h-5 w-5 text-primary" />
                   <Typography variant="h3" className="text-xl font-extrabold text-slate-900 dark:text-white">
@@ -127,7 +159,7 @@ const CitySelectorContent = () => {
               </div>
 
               {/* Grid of Cities with Images */}
-              <div className="p-6 sm:p-8">
+              <div className="p-6 sm:p-8 overflow-y-auto flex-1">
                 <Typography variant="small" className="uppercase tracking-[0.2em] text-slate-400 dark:text-slate-500 font-semibold mb-6">
                   Popular Locations
                 </Typography>

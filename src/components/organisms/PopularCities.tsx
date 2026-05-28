@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { Typography } from "../atoms/Typography";
 
@@ -237,13 +238,60 @@ const citiesList = [
       </svg>
     ),
   },
+  {
+    name: "Pune",
+    slug: "pune",
+    illustration: (
+      <svg className="w-24 h-20" viewBox="0 0 120 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        {/* Soft sunset glow background */}
+        <circle cx="60" cy="50" r="30" fill="#fdf2f8" className="dark:fill-pink-950/20" />
+        
+        {/* Shaniwar Wada Grand stone fort base wall */}
+        <path d="M15 78v-16h90v18H15z" fill="#9ca3af" className="dark:fill-slate-650" />
+        
+        {/* Left & Right Octagonal Bastions flanking the gate */}
+        <path d="M26 78V52c0-4 4-6 8-6h8v32H26z" fill="#6b7280" className="dark:fill-slate-500" />
+        <path d="M86 78V52c0-4-4-6-8-6h-8v32H86z" fill="#6b7280" className="dark:fill-slate-500" />
+        
+        {/* Grand wooden Delhi Darwaza (Gate) */}
+        <path d="M50 78V60c0-6 4-10 10-10s10 4 10 10v18H50z" fill="#451a03" />
+        
+        {/* Arched Stone arch framing the gate */}
+        <path d="M48 78V60c0-8 6-12 12-12s12 4 12 12v18h-4V60c0-5-3-8-8-8s-8 3-8 8v18h-4z" fill="#d1d5db" className="dark:fill-slate-400" />
+        
+        {/* Wooden balcony / upper structures (jharokhas) on top */}
+        <rect x="42" y="44" width="36" height="4" fill="#78350f" />
+        <line x1="46" y1="44" x2="46" y2="34" stroke="#78350f" strokeWidth="1.5" />
+        <line x1="53" y1="44" x2="53" y2="34" stroke="#78350f" strokeWidth="1.5" />
+        <line x1="60" y1="44" x2="60" y2="34" stroke="#78350f" strokeWidth="1.5" />
+        <line x1="67" y1="44" x2="67" y2="34" stroke="#78350f" strokeWidth="1.5" />
+        <line x1="74" y1="44" x2="74" y2="34" stroke="#78350f" strokeWidth="1.5" />
+        
+        {/* Wooden roof canopy */}
+        <path d="M38 34c4-3 12-5 22-5s18 2 22 5H38z" fill="#dc2626" />
+        
+        {/* Spikes on the gate (Delhi Darwaza spikes detail) */}
+        <circle cx="53" cy="65" r="0.75" fill="#f3f4f6" />
+        <circle cx="53" cy="70" r="0.75" fill="#f3f4f6" />
+        <circle cx="57" cy="65" r="0.75" fill="#f3f4f6" />
+        <circle cx="57" cy="70" r="0.75" fill="#f3f4f6" />
+        <circle cx="63" cy="65" r="0.75" fill="#f3f4f6" />
+        <circle cx="63" cy="70" r="0.75" fill="#f3f4f6" />
+        <circle cx="67" cy="65" r="0.75" fill="#f3f4f6" />
+        <circle cx="67" cy="70" r="0.75" fill="#f3f4f6" />
+        
+        {/* Trees surrounding Shaniwar Wada */}
+        <path d="M10 78c2-8 7-12 5-18" stroke="#78350f" strokeWidth="2" strokeLinecap="round" />
+        <path d="M5 60c-2 2-4 6-2 9M7 58c1-3 5-4 7-1M13 60c3 1 4 5 2 7" stroke="#16a34a" strokeWidth="1.5" strokeLinecap="round" />
+        
+        <path d="M110 78c-2-8-7-12-5-18" stroke="#78350f" strokeWidth="2" strokeLinecap="round" />
+        <path d="M103 60c-2 2-3 5-1 7M105 58c1-3 4-4 6-1M111 60c2 1 3 5 1 7" stroke="#16a34a" strokeWidth="1.5" strokeLinecap="round" />
+      </svg>
+    ),
+  },
 ];
 
 const PopularCities = () => {
-  const selectCity = (slug: string) => {
-    window.location.href = `/hostels?city=${slug}`;
-  };
-
   return (
     <section id="popular-cities" className="bg-white py-16 dark:bg-slate-900 border-t border-slate-100 dark:border-slate-800">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -265,25 +313,29 @@ const PopularCities = () => {
         {/* Responsive horizontal list of cities with cute illustrations */}
         <div className="mt-12 flex flex-wrap items-center justify-center gap-6 sm:gap-10 lg:gap-12 w-full">
           {citiesList.map((city) => (
-            <motion.button
+            <Link
               key={city.slug}
-              whileHover={{ y: -6, scale: 1.05 }}
-              onClick={() => selectCity(city.slug)}
+              href={`/city/${city.slug}`}
               className="flex flex-col items-center justify-center group outline-none focus:outline-none cursor-pointer"
             >
-              {/* Illustrated Icon Container with shadow and hover effects */}
-              <div className="relative flex items-center justify-center p-3 rounded-2xl bg-slate-50/50 hover:bg-slate-50 dark:bg-slate-800/40 dark:hover:bg-slate-850 border border-slate-100/50 dark:border-slate-800/30 group-hover:shadow-md transition-all duration-300">
-                {city.illustration}
-              </div>
-              
-              {/* City name */}
-              <Typography
-                variant="h4"
-                className="mt-4 text-sm sm:text-base font-bold text-slate-850 dark:text-slate-200 group-hover:text-primary transition-colors tracking-wide"
+              <motion.div
+                whileHover={{ y: -6, scale: 1.05 }}
+                className="flex flex-col items-center justify-center"
               >
-                {city.name}
-              </Typography>
-            </motion.button>
+                {/* Illustrated Icon Container with shadow and hover effects */}
+                <div className="relative flex items-center justify-center p-3 rounded-2xl bg-slate-50/50 hover:bg-slate-50 dark:bg-slate-800/40 dark:hover:bg-slate-850 border border-slate-100/50 dark:border-slate-800/30 group-hover:shadow-md transition-all duration-300">
+                  {city.illustration}
+                </div>
+                
+                {/* City name */}
+                <Typography
+                  variant="h4"
+                  className="mt-4 text-sm sm:text-base font-bold text-slate-850 dark:text-slate-200 group-hover:text-primary transition-colors tracking-wide"
+                >
+                  {city.name}
+                </Typography>
+              </motion.div>
+            </Link>
           ))}
         </div>
       </div>
