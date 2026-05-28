@@ -3,7 +3,6 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 import { Typography } from "../atoms/Typography";
 import { Badge } from "../atoms/Badge";
@@ -20,26 +19,6 @@ interface HostelCardProps {
 }
 
 const HostelCard = ({ name, location, price, rating, image, isVerified = true, className }: HostelCardProps) => {
-  const pathname = usePathname();
-
-  const handleDetailsClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    if (pathname === "/") {
-      e.preventDefault();
-      const msgElement = document.getElementById("quick-message") as HTMLTextAreaElement;
-      if (msgElement) {
-        msgElement.value = `Hi, I am interested in booking: ${name}. Please share more details!`;
-      }
-      const enquirySection = document.getElementById("enquiry");
-      if (enquirySection) {
-        enquirySection.scrollIntoView({ behavior: "smooth" });
-      }
-      const nameElement = document.getElementById("quick-name");
-      if (nameElement) {
-        nameElement.focus();
-      }
-    }
-  };
-
   return (
     <motion.div
       whileHover={{ scale: 1.02 }}
@@ -79,7 +58,6 @@ const HostelCard = ({ name, location, price, rating, image, isVerified = true, c
         </div>
         <Link
           href={`/hostels?hostel=${encodeURIComponent(name)}`}
-          onClick={handleDetailsClick}
           className="block text-center w-full rounded-xl bg-slate-100 py-2.5 text-sm font-semibold text-slate-900 transition-colors hover:bg-primary hover:text-white dark:bg-white/5 dark:text-slate-100 dark:hover:bg-primary"
         >
           View Details

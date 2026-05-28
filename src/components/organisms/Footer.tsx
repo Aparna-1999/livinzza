@@ -1,27 +1,12 @@
 "use client";
 
 import React from "react";
-import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { Logo } from "../atoms/Logo";
 import { Typography } from "../atoms/Typography";
 import { Globe, Users, Shield, Info, Mail, Phone } from "lucide-react";
 
 const Footer = () => {
-  const pathname = usePathname();
-
-  const handleFooterLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    if (pathname === "/") {
-      if (href === "/know-more") {
-        e.preventDefault();
-        document.getElementById("app-features")?.scrollIntoView({ behavior: "smooth" });
-      } else if (href === "/partner-with-us" || href === "/contact") {
-        e.preventDefault();
-        document.getElementById("enquiry")?.scrollIntoView({ behavior: "smooth" });
-      }
-    }
-  };
-
   return (
     <footer className="border-t border-slate-200 bg-white pt-20 pb-10 text-slate-900 dark:border-white/10 dark:bg-slate-950 dark:text-slate-100">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -52,7 +37,6 @@ const Footer = () => {
                 <li key={item.label}>
                   <Link
                     href={item.href}
-                    onClick={(e) => handleFooterLinkClick(e, item.href)}
                     className="text-sm text-slate-600 transition-colors hover:text-primary dark:text-slate-400 dark:hover:text-white"
                   >
                     {item.label}

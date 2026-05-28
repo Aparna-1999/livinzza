@@ -20,12 +20,6 @@ import {
 } from "lucide-react";
 
 const RoleSelectionSection = () => {
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
 
   return (
     <section className="relative w-full bg-gradient-to-b from-slate-50 via-white to-slate-50 py-20 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 overflow-hidden">
@@ -190,13 +184,13 @@ const RoleSelectionSection = () => {
               </div>
 
               {/* Action Button */}
-              <button
-                onClick={() => scrollToSection("enquiry")}
+              <Link
+                href="/partner-with-us"
                 className="w-full sm:w-auto rounded-xl px-6 sm:px-8 py-3.5 bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-bold shadow-lg shadow-emerald-500/20 transition-all duration-200 inline-flex items-center justify-center gap-2 group shrink-0"
               >
                 Continue as Institution
                 <ArrowRight className="h-4.5 w-4.5 transition-transform group-hover:translate-x-1" />
-              </button>
+              </Link>
             </div>
 
             {/* Right Image Box (with floating overlapping circle badge) */}

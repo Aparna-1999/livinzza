@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { Typography } from "../atoms/Typography";
 import { Button } from "../atoms/Button";
@@ -11,19 +12,14 @@ import { ArrowRight, Search, Sparkles } from "lucide-react";
 
 const UniversitySlider = () => {
   const [searchQuery, setSearchQuery] = useState("");
-
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
+  const router = useRouter();
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
-    const element = document.getElementById("hostels");
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+    if (searchQuery.trim()) {
+      router.push(`/hostels?search=${encodeURIComponent(searchQuery.trim())}`);
+    } else {
+      router.push("/hostels");
     }
   };
 
@@ -72,7 +68,7 @@ const UniversitySlider = () => {
 
               {/* Quick Action CTA & Tags */}
               <div className="mt-8 flex flex-wrap items-center gap-4 w-full min-w-0">
-                <Button onClick={() => scrollToSection("enquiry")} variant="primary" className="inline-flex items-center gap-2 rounded-full px-6 sm:px-7 py-3 sm:py-3.5 text-xs sm:text-sm font-semibold shadow-lg shadow-primary/20 shrink-0">
+                <Button href="/partner-with-us" variant="primary" className="inline-flex items-center gap-2 rounded-full px-6 sm:px-7 py-3 sm:py-3.5 text-xs sm:text-sm font-semibold shadow-lg shadow-primary/20 shrink-0">
                   Partner with Us
                   <ArrowRight className="h-4 w-4" />
                 </Button>
@@ -105,8 +101,8 @@ const UniversitySlider = () => {
               </div>
 
               {/* White Overlay Box on the Right */}
-              <button
-                onClick={() => scrollToSection("enquiry")}
+              <Link
+                href="/partner-with-us"
                 className="absolute left-4 right-4 sm:left-auto sm:right-6 top-1/2 -translate-y-1/2 bg-white/95 dark:bg-slate-900/95 hover:bg-white dark:hover:bg-slate-900 p-5 sm:p-6 rounded-2xl shadow-xl border border-slate-100 dark:border-slate-800 text-left sm:w-[300px] lg:w-[320px] transition-all hover:scale-[1.02] flex items-center justify-between gap-4 group"
               >
                 <div className="min-w-0 flex-1">
@@ -120,7 +116,7 @@ const UniversitySlider = () => {
                 <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 transition-transform group-hover:translate-x-1">
                   <ArrowRight className="h-4 w-4 text-primary" />
                 </div>
-              </button>
+              </Link>
             </div>
 
             {/* Bottom Card: Students (Horizontal Landscape Room Card with blue overlay card on the left) */}

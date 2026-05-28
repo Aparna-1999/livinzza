@@ -2,7 +2,6 @@
 
 import React from "react";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
 import { ArrowRight, GraduationCap } from "lucide-react";
 import { Typography } from "../atoms/Typography";
 import { Badge } from "../atoms/Badge";
@@ -17,18 +16,7 @@ interface CollegeCardProps {
 }
 
 const CollegeCard = ({ name, location, hostels, image, className }: CollegeCardProps) => {
-  const pathname = usePathname();
   const targetHref = `/hostels?college=${encodeURIComponent(name)}`;
-
-  const handleCollegeClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-    if (pathname === "/") {
-      e.preventDefault();
-      const hostelsSection = document.getElementById("hostels");
-      if (hostelsSection) {
-        hostelsSection.scrollIntoView({ behavior: "smooth" });
-      }
-    }
-  };
 
   return (
     <article className={`group flex flex-col overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl dark:border-white/10 dark:bg-slate-950 ${className ?? ""}`}>
@@ -64,7 +52,6 @@ const CollegeCard = ({ name, location, hostels, image, className }: CollegeCardP
 
         <Button
           href={targetHref}
-          onClick={handleCollegeClick as any}
           variant="link"
           className="mt-6 h-auto p-0 text-sm font-semibold text-primary dark:text-primary inline-flex items-center gap-1 group-hover:underline"
         >
