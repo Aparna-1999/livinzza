@@ -4,7 +4,7 @@ import React, { useState, useEffect, Suspense } from "react";
 import { createPortal } from "react-dom";
 import Image from "next/image";
 import { useSearchParams, usePathname, useRouter } from "next/navigation";
-import { MapPin, ChevronDown, X, Sparkles } from "lucide-react";
+import { MapPin, ChevronDown, X, Sparkles, Globe } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Typography } from "../atoms/Typography";
 
@@ -111,7 +111,11 @@ const CitySelectorContent = () => {
     localStorage.setItem("selected_city", cityName);
     setSelectedCity(cityName);
     setIsOpen(false);
-    router.push(`/city/${citySlug}`);
+    if (!citySlug) {
+      router.push("/hostels");
+    } else {
+      router.push(`/city/${citySlug}`);
+    }
   };
 
   return (
@@ -172,6 +176,22 @@ const CitySelectorContent = () => {
                     </Typography>
 
                     <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-5">
+                      {/* All Cities Option */}
+                      <button
+                        onClick={() => selectCity("", "All Cities")}
+                        className="group flex flex-col items-center rounded-2xl p-2 transition-all hover:bg-slate-50 dark:hover:bg-white/5"
+                      >
+                        <div className="relative aspect-square w-full overflow-hidden rounded-full border border-slate-200/80 bg-gradient-to-tr from-primary to-blue-500 shadow-sm transition-all duration-300 group-hover:scale-105 group-hover:shadow-md dark:border-white/10 flex items-center justify-center">
+                          <Globe className="h-8 w-8 text-white transition-transform duration-500 group-hover:rotate-12" />
+                        </div>
+                        <span className="mt-3.5 text-sm font-bold text-slate-800 transition-colors group-hover:text-primary dark:text-slate-200">
+                          All Cities
+                        </span>
+                        <span className="text-[10px] text-slate-400 dark:text-slate-500">
+                          Show everything
+                        </span>
+                      </button>
+
                       {cities.map((city) => (
                         <button
                           key={city.slug}
