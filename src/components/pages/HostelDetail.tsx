@@ -2,43 +2,29 @@
 
 import React from "react";
 import { MarketingLayout } from "../templates/MarketingLayout";
-import { HostelDetailHero } from "../organisms/HostelDetailHero";
-import { HostelDetailInfo } from "../organisms/HostelDetailInfo";
+import { HostelDetailHeader } from "../organisms/HostelDetailHeader";
+import { HostelDetailFacilities } from "../organisms/HostelDetailFacilities";
 import { HostelRoomTypes } from "../organisms/HostelRoomTypes";
 
-// We import the type directly if needed, or define inline
-interface HostelData {
-  id: string;
-  name: string;
-  gender: string;
-  city: string;
-  college: string;
-  roomTypes: string[];
-  image: string;
-  price: string;
-  rating: number;
-  reviewsCount?: number;
-  amenities: string[];
-  mapCoords: { x: number; y: number };
-  description?: string;
-  detailedRoomTypes?: Array<{ name: string; price: string; frequency: string }>;
-}
-
-export const HostelDetail = ({ hostel }: { hostel: HostelData }) => {
+export const HostelDetail = ({ hostel }: { hostel: any }) => {
   return (
     <MarketingLayout>
-      <div className="bg-slate-50 dark:bg-slate-950 pb-20">
-        <HostelDetailHero hostel={hostel} />
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mt-12 grid grid-cols-1 lg:grid-cols-3 gap-12">
-          {/* Left Column: About & Facilities */}
-          <div className="lg:col-span-2 space-y-12">
-            <HostelDetailInfo hostel={hostel} />
-          </div>
+      <div className="relative min-h-screen bg-slate-50 dark:bg-slate-950 pb-24 pt-8 overflow-hidden">
+        {/* Dynamic Background Orbs */}
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl pointer-events-none -translate-y-1/2"></div>
+        <div className="absolute bottom-0 right-1/4 w-[30rem] h-[30rem] bg-indigo-500/5 rounded-full blur-3xl pointer-events-none translate-y-1/2"></div>
+        
+        <div className="relative z-10 mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-8 space-y-8 md:space-y-12">
           
-          {/* Right Column: Pricing & Booking */}
-          <div className="lg:col-span-1">
-            <HostelRoomTypes hostel={hostel} />
-          </div>
+          {/* Section 1: Header & Gallery */}
+          <HostelDetailHeader hostel={hostel} />
+
+          {/* Section 2: Facilities */}
+          <HostelDetailFacilities hostel={hostel} />
+
+          {/* Section 3: Room Types & Action Buttons */}
+          <HostelRoomTypes hostel={hostel} />
+          
         </div>
       </div>
     </MarketingLayout>

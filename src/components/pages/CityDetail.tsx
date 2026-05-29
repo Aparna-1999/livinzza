@@ -28,7 +28,8 @@ import { MainLayout } from "../templates/MainLayout";
 import { Typography } from "../atoms/Typography";
 import { Button } from "../atoms/Button";
 import { HostelListingCard } from "../molecules/HostelListingCard";
-import { HostelResults, hostelResults } from "../organisms/HostelResults";
+import { HostelResults } from "../organisms/HostelResults";
+import { hostelResults } from "../../data/hostels";
 
 interface CityDetailProps {
   citySlug: string;
