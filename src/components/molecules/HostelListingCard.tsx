@@ -115,6 +115,13 @@ const HostelListingCard = ({
               <span className="truncate">{gender}</span>
             </div>
           </div>
+
+          {/* Know More Button */}
+          <div className="mt-4 pt-1">
+            <div className="w-full text-center rounded-xl bg-slate-50 border border-slate-100 py-2.5 text-xs font-extrabold text-slate-700 transition-all duration-300 group-hover:bg-primary group-hover:text-white group-hover:border-primary dark:bg-white/5 dark:border-white/5 dark:text-slate-200 dark:group-hover:bg-primary dark:group-hover:border-primary">
+              Know More
+            </div>
+          </div>
         </div>
       </motion.div>
     </Link>

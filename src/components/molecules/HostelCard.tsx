@@ -60,7 +60,7 @@ const HostelCard = ({ name, location, price, rating, image, isVerified = true, c
           href={`/hostels?hostel=${encodeURIComponent(name)}`}
           className="block text-center w-full rounded-xl bg-slate-100 py-2.5 text-sm font-semibold text-slate-900 transition-colors hover:bg-primary hover:text-white dark:bg-white/5 dark:text-slate-100 dark:hover:bg-primary"
         >
-          View Details
+          Know More
         </Link>
       </div>
     </motion.div>

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { HostelListingCard } from "../molecules/HostelListingCard";
 import {
   MapPin,
@@ -348,6 +348,24 @@ const HostelResults = ({ citySlug, collegeQuery, hostelQuery }: HostelResultsPro
   const [cityVal, setCityVal] = useState(initialCityName);
   const [collegeVal, setCollegeVal] = useState(collegeQuery || "");
   const [hostelVal, setHostelVal] = useState(hostelQuery || "");
+
+  useEffect(() => {
+    if (hostelQuery !== undefined) {
+      setHostelVal(hostelQuery || "");
+    }
+  }, [hostelQuery]);
+
+  useEffect(() => {
+    if (citySlug !== undefined) {
+      setCityVal(citySlug ? CITY_NAME_BY_SLUG[citySlug.toLowerCase()] ?? "" : "");
+    }
+  }, [citySlug]);
+
+  useEffect(() => {
+    if (collegeQuery !== undefined) {
+      setCollegeVal(collegeQuery || "");
+    }
+  }, [collegeQuery]);
 
   // Sidebar accordions
   const [genderOpen, setGenderOpen] = useState(true);
