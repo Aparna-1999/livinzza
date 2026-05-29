@@ -9,6 +9,7 @@ import { Badge } from "../atoms/Badge";
 import { Star, MapPin, CheckCircle2 } from "lucide-react";
 
 interface HostelCardProps {
+  id?: string;
   name: string;
   location: string;
   price: string;
@@ -18,7 +19,7 @@ interface HostelCardProps {
   className?: string;
 }
 
-const HostelCard = ({ name, location, price, rating, image, isVerified = true, className }: HostelCardProps) => {
+const HostelCard = ({ id, name, location, price, rating, image, isVerified = true, className }: HostelCardProps) => {
   return (
     <motion.div
       whileHover={{ scale: 1.02 }}
@@ -57,7 +58,7 @@ const HostelCard = ({ name, location, price, rating, image, isVerified = true, c
           <span className="line-clamp-1">{location}</span>
         </div>
         <Link
-          href={`/hostels?hostel=${encodeURIComponent(name)}`}
+          href={id ? `/hostel/${id}` : `/hostels?hostel=${encodeURIComponent(name)}`}
           className="block text-center w-full rounded-xl bg-slate-100 py-2.5 text-sm font-semibold text-slate-900 transition-colors hover:bg-primary hover:text-white dark:bg-white/5 dark:text-slate-100 dark:hover:bg-primary"
         >
           Know More

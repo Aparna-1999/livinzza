@@ -8,6 +8,7 @@ import { MapPin, GraduationCap, Bed, CheckCircle2, User, Star } from "lucide-rea
 import { Badge } from "../atoms/Badge";
 
 interface HostelListingCardProps {
+  id?: string;
   name: string;
   gender: "Male" | "Female";
   city: string;
@@ -19,6 +20,7 @@ interface HostelListingCardProps {
 }
 
 const HostelListingCard = ({
+  id,
   name,
   gender,
   city,
@@ -32,7 +34,7 @@ const HostelListingCard = ({
   const shortCollege = college.replace("University", "Univ.").split("-")[0].trim();
 
   return (
-    <Link href={`/hostels?hostel=${encodeURIComponent(name)}`} className="block group">
+    <Link href={id ? `/hostel/${id}` : `/hostels?hostel=${encodeURIComponent(name)}`} className="block group">
       <motion.div
         whileHover={{ y: -6, scale: 1.015 }}
         className="flex flex-col h-full overflow-hidden rounded-[1.75rem] border border-slate-150 bg-white p-3 shadow-[0_8px_30px_rgb(0,0,0,0.02)] transition-all hover:shadow-[0_15px_45px_rgba(2,6,23,0.08)] dark:border-white/5 dark:bg-slate-900"
