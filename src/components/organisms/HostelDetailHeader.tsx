@@ -161,15 +161,25 @@ export const HostelDetailHeader = ({ hostel }: { hostel: any }) => {
           </div>
 
           {/* Download Buttons */}
-          <div className="flex flex-col sm:flex-row items-center gap-4 mt-2">
-            <button className="w-full bg-gradient-to-r from-[#0aa82a] to-[#0d9426] hover:from-[#088c22] hover:to-[#0b7a1d] text-white rounded-[1.25rem] py-3.5 font-bold flex items-center justify-center gap-2 border border-white/20 shadow-lg shadow-green-600/20 transition-all hover:shadow-xl hover:shadow-green-600/30 hover:-translate-y-0.5">
+          <div className="flex flex-col sm:flex-row items-center gap-4 mt-2 relative z-20">
+            <a 
+              href={hostel.feeStructurePdf || "https://hostels.pleasantbiz.com/files/Nest%20Boys%20Hostel%202026-2027.pdf"}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full bg-gradient-to-r from-[#0aa82a] to-[#0d9426] hover:from-[#088c22] hover:to-[#0b7a1d] text-white rounded-[1.25rem] py-3.5 font-bold flex items-center justify-center gap-2 border border-white/20 shadow-lg shadow-green-600/20 transition-all hover:shadow-xl hover:shadow-green-600/30 hover:-translate-y-0.5"
+            >
               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
               Fee Structure
-            </button>
-            <button className="w-full bg-gradient-to-r from-[#0aa82a] to-[#0d9426] hover:from-[#088c22] hover:to-[#0b7a1d] text-white rounded-[1.25rem] py-3.5 font-bold flex items-center justify-center gap-2 border border-white/20 shadow-lg shadow-green-600/20 transition-all hover:shadow-xl hover:shadow-green-600/30 hover:-translate-y-0.5">
+            </a>
+            <a 
+              href={hostel.termsPdf || "https://hostels.pleasantbiz.com/files/Ivy%20Living%20-%20Terms%20and%20Conditions%20-%20Jain%20(1).pdf"}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full bg-gradient-to-r from-[#0aa82a] to-[#0d9426] hover:from-[#088c22] hover:to-[#0b7a1d] text-white rounded-[1.25rem] py-3.5 font-bold flex items-center justify-center gap-2 border border-white/20 shadow-lg shadow-green-600/20 transition-all hover:shadow-xl hover:shadow-green-600/30 hover:-translate-y-0.5"
+            >
               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
               Terms & Conditions
-            </button>
+            </a>
           </div>
         </div>
       </div>
