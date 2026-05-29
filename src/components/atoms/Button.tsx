@@ -16,6 +16,8 @@ interface ButtonProps extends Omit<HTMLMotionProps<"button">, "children"> {
   size?: "sm" | "md" | "lg" | "icon";
   isLoading?: boolean;
   href?: string;
+  target?: string;
+  rel?: string;
   children?: React.ReactNode;
 }
 
@@ -47,8 +49,21 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 
     if (href) {
       const { whileHover, whileTap, ...restProps } = sharedProps;
+      const isExternal = href.startsWith("http");
+
+      if (isExternal) {
+        return (
+          <a href={href} target={props.target} rel={props.rel || (props.target === "_blank" ? "noopener noreferrer" : undefined)} {...(restProps as any)}>
+            {isLoading ? (
+              <div className="mr-2 h-4 w-4 animate-spin rounded-full border-2 border-current border-t-transparent" />
+            ) : null}
+            <span className="inline-flex items-center gap-2">{children}</span>
+          </a>
+        );
+      }
+
       return (
-        <Link href={href} {...(restProps as any)}>
+        <Link href={href} target={props.target} {...(restProps as any)}>
           {isLoading ? (
             <div className="mr-2 h-4 w-4 animate-spin rounded-full border-2 border-current border-t-transparent" />
           ) : null}

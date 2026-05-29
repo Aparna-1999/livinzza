@@ -77,10 +77,10 @@ export const HostelRoomTypes = ({ hostel }: { hostel: any }) => {
           Enquire Now
         </Button>
         <Button 
-          href="/contact" 
-          className="w-full flex items-center justify-center gap-2 py-4 rounded-[1.5rem] font-extrabold bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white border-0 transition-all duration-300 shadow-[0_8px_20px_rgba(37,99,235,0.3)] hover:shadow-[0_12px_25px_rgba(37,99,235,0.4)] hover:-translate-y-0.5"
+          href={`/book/${hostel.id}`}
+          className="w-full flex items-center justify-center gap-3 py-6 rounded-[2rem] font-black text-lg bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white border-0 transition-all duration-300 shadow-[0_15px_30px_rgba(37,99,235,0.4)] hover:shadow-[0_20px_40px_rgba(37,99,235,0.5)] hover:-translate-y-1"
         >
-          <Calendar className="h-5 w-5" />
+          <Calendar className="h-6 w-6" />
           Book Now
         </Button>
       </div>
