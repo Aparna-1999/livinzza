@@ -19,6 +19,7 @@ import {
   Sparkles,
   ArrowRight,
 } from "lucide-react";
+import { FeatureMockups } from "./FeatureMockups";
 
 const providerFeatures = [
   {
@@ -132,6 +133,11 @@ const KnowMoreSections = () => {
         </div>
       </section>
 
+      {/* SECTION 1.5: Feature Detailed Screens */}
+      <section className="bg-slate-50/50 py-10 dark:bg-slate-950/30">
+        <FeatureMockups />
+      </section>
+
       {/* SECTION 2: Interactive Admissions Flow */}
       <section className="bg-slate-50 py-20 dark:bg-slate-950/60">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -219,6 +225,64 @@ const KnowMoreSections = () => {
                 </motion.div>
               </AnimatePresence>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 2.5: App Screens Mockup */}
+      <section className="relative overflow-hidden bg-white py-20 dark:bg-slate-900">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+            <motion.div 
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6 }}
+              className="flex flex-col items-start text-left"
+            >
+              <Badge variant="secondary" className="mb-6 border border-slate-200 bg-slate-50 px-4 py-2 text-[11px] uppercase tracking-[0.2em] text-primary dark:border-white/10 dark:bg-white/5 dark:text-primary/80">
+                Student & Parent App
+              </Badge>
+              <Typography variant="h2" className="text-3xl sm:text-4xl lg:text-5xl font-black leading-[1.1] tracking-tight text-slate-900 dark:text-white">
+                Everything they need, <br />
+                <span className="text-primary bg-clip-text">in their pocket.</span>
+              </Typography>
+              <Typography variant="p" className="mt-6 text-base sm:text-lg leading-relaxed text-slate-600 dark:text-slate-300 max-w-xl">
+                Give your students and their parents a premium, dedicated app to manage rent, submit complaints, and track attendance. A seamless experience that boosts your institution's reputation and ensures peace of mind.
+              </Typography>
+              <ul className="mt-8 space-y-4">
+                {[
+                  "Instant Rent Payments & UPI Integration",
+                  "Live Attendance & Gate Pass Tracking",
+                  "24/7 Digital Complaint Resolution",
+                  "Instant Broadcasts & Announcements"
+                ].map((item, idx) => (
+                  <li key={idx} className="flex items-center gap-4">
+                    <div className="flex h-7 w-7 items-center justify-center rounded-full bg-emerald-100/80 text-emerald-600 dark:bg-emerald-500/20 dark:text-emerald-400">
+                      <Sparkles className="h-3.5 w-3.5" />
+                    </div>
+                    <span className="text-sm font-bold text-slate-700 dark:text-slate-200">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, x: 30 }}
+              whileInView={{ opacity: 1, scale: 1, x: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.7, delay: 0.1 }}
+              className="relative w-full"
+            >
+              {/* Ambient shadow backdrops */}
+              <div className="absolute left-1/2 top-1/2 -z-10 h-[400px] w-[400px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/20 blur-[100px] dark:bg-primary/30" />
+              <div className="absolute right-0 bottom-0 -z-10 h-[300px] w-[300px] rounded-full bg-indigo-500/20 blur-[100px] dark:bg-indigo-500/30" />
+              
+              <img 
+                src="/images/app_screens_mockup.png" 
+                alt="Livinnza App Screens" 
+                className="w-full h-auto drop-shadow-2xl hover:scale-[1.02] transition-transform duration-500 object-contain max-h-[600px]"
+              />
+            </motion.div>
           </div>
         </div>
       </section>
