@@ -27,7 +27,8 @@ import {
 import { MainLayout } from "../templates/MainLayout";
 import { Typography } from "../atoms/Typography";
 import { Button } from "../atoms/Button";
-import { CitySEOContent } from "../organisms/CitySEOContent";
+import { HostelListingCard } from "../molecules/HostelListingCard";
+import { HostelResults } from "../organisms/HostelResults";
 import { hostelResults } from "../../data/hostels";
 
 interface CityDetailProps {
@@ -56,7 +57,7 @@ const CITY_MOTTO_MAP: Record<string, string> = {
   "delhi-ncr": "Aesthetic, high-end student living near India's top campuses"
 };
 
-const CityDetail = ({ citySlug }: CityDetailProps) => {
+const CityHostels = ({ citySlug }: CityDetailProps) => {
   const cleanSlug = citySlug.toLowerCase();
   const cityName = CITY_NAME_MAP[cleanSlug] || citySlug.charAt(0).toUpperCase() + citySlug.slice(1);
   const cityMotto = CITY_MOTTO_MAP[cleanSlug] || "Premium Shared Accommodations & Student Stays";
@@ -103,6 +104,49 @@ const CityDetail = ({ citySlug }: CityDetailProps) => {
     <MainLayout>
       <section className="bg-slate-50 dark:bg-slate-950 min-h-screen pt-20 pb-20 transition-all duration-300 flex flex-col">
         
+        {/* Dynamic Full-Width Livinnza Brand Blue Banner */}
+        <div className="w-full bg-[#006eeb] dark:bg-[#0059c4] text-white relative overflow-hidden mb-12 border-b border-blue-600/10">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-10 pb-0 flex flex-col md:flex-row items-center justify-between relative min-h-[300px] md:min-h-[340px]">
+            
+            {/* Left side text contents */}
+            <div className="max-w-2xl z-10 text-left py-8 md:py-10 md:pr-8">
+              <Typography
+                variant="h3"
+                className="text-xs sm:text-sm font-extrabold uppercase tracking-[0.2em] text-blue-100/90 mb-2"
+              >
+                The Perfect Stay In
+              </Typography>
+              <Typography
+                variant="h1"
+                className="text-4.5xl sm:text-6.5xl font-black tracking-tight text-white mb-4 uppercase drop-shadow-sm leading-none"
+              >
+                {cityName}
+              </Typography>
+              <Typography
+                variant="p"
+                className="text-sm sm:text-base text-white/95 font-medium max-w-lg leading-relaxed opacity-95"
+              >
+                Looking for the best hostels? We've got you covered! Discover comfortable, affordable, and well-equipped hostels tailored to your needs.
+              </Typography>
+            </div>
+
+            {/* Right side cutout portrait */}
+            <div className="relative w-[280px] sm:w-[320px] md:w-[360px] lg:w-[380px] aspect-square shrink-0 z-10 self-end -mb-1 md:-mb-1.5">
+              <Image
+                src="/images/student_pointing_blue.png"
+                alt={`${cityName} Student stay illustration`}
+                fill
+                sizes="(max-width: 768px) 280px, (max-width: 1024px) 320px, 380px"
+                priority
+                className="object-contain object-bottom select-none pointer-events-none"
+              />
+            </div>
+
+            {/* Subtle backdrop radial glow */}
+            <div className="absolute top-0 right-1/4 h-48 w-48 bg-white/10 blur-3xl rounded-full pointer-events-none" />
+          </div>
+        </div>
+
         {/* Centered Main Content Area */}
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full">
           
@@ -113,18 +157,20 @@ const CityDetail = ({ citySlug }: CityDetailProps) => {
                 <Home className="h-3.5 w-3.5 group-hover:scale-105 transition-transform" /> Home
               </Link>
               <ChevronRight className="h-3 w-3" />
-              <span className="text-slate-500 dark:text-slate-400">City</span>
+              <Link href={`/city/${citySlug}`} className="hover:text-primary transition-colors flex items-center gap-1 group">
+                {cityName}
+              </Link>
               <ChevronRight className="h-3 w-3" />
-              <span className="text-primary font-black tracking-widest">{cityName}</span>
+              <span className="text-primary font-black tracking-widest">Hostels</span>
             </nav>
           </div>
 
-          {/* SEO Content for the City */}
+          {/* 2. Premium Search Results, Sidebar Filters, & Map View */}
           <div className="mb-20">
-            <CitySEOContent citySlug={citySlug} />
+            <HostelResults citySlug={citySlug} />
           </div>
 
-          {/* Signature Amenities & Services */}
+          {/* 4. Signature Amenities & Services */}
           <div className="mb-20 border-t border-slate-200/60 dark:border-white/5 pt-16">
             <div className="text-center max-w-3xl mx-auto mb-12">
               <Typography variant="small" className="uppercase tracking-[0.25em] text-primary dark:text-primary/95 font-extrabold mb-2.5 block">
@@ -332,4 +378,4 @@ const CityDetail = ({ citySlug }: CityDetailProps) => {
   );
 };
 
-export { CityDetail };
+export { CityHostels };
