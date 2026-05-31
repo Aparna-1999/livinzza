@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import { Typography } from "../atoms/Typography";
 import { CheckCircle2, ShieldCheck, MapPin, Sparkles } from "lucide-react";
 
@@ -201,12 +202,12 @@ const CitySEOContent = ({ citySlug }: CitySEOContentProps) => {
           <Typography variant="p" className="text-base leading-relaxed max-w-2xl mx-auto mb-6">
             {data.conclusionText}
           </Typography>
-          <a 
+          <Link 
             href={`/city/${citySlug}/hostels`}
             className="inline-flex items-center justify-center rounded-full bg-primary px-8 py-3.5 text-sm font-bold text-white shadow-lg shadow-primary/20 hover:-translate-y-0.5 hover:shadow-xl transition-all"
           >
             Explore Now
-          </a>
+          </Link>
         </section>
 
       </div>

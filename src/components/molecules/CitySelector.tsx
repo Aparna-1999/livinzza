@@ -72,9 +72,10 @@ const CitySelectorContent = () => {
           
           if (searchParams?.get("selectCity") === "true") {
             setIsOpen(true);
-            const url = new URL(window.location.href);
-            url.searchParams.delete("selectCity");
-            window.history.replaceState({}, "", url.toString());
+            const newSearchParams = new URLSearchParams(searchParams.toString());
+            newSearchParams.delete("selectCity");
+            const newUrl = newSearchParams.toString() ? `${pathname}?${newSearchParams.toString()}` : pathname;
+            router.replace(newUrl, { scroll: false });
           }
           return;
         }
@@ -101,9 +102,10 @@ const CitySelectorContent = () => {
 
     if (searchParams?.get("selectCity") === "true") {
       setIsOpen(true);
-      const url = new URL(window.location.href);
-      url.searchParams.delete("selectCity");
-      window.history.replaceState({}, "", url.toString());
+      const newSearchParams = new URLSearchParams(searchParams.toString());
+      newSearchParams.delete("selectCity");
+      const newUrl = newSearchParams.toString() ? `${pathname}?${newSearchParams.toString()}` : pathname;
+      router.replace(newUrl, { scroll: false });
     }
   }, [pathname, searchParams]);
 
