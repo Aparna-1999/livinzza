@@ -4,7 +4,9 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Typography } from "../atoms/Typography";
-import { CheckCircle2, ShieldCheck, MapPin, Sparkles } from "lucide-react";
+import { CheckCircle2, ShieldCheck, MapPin, Sparkles, ChevronRight } from "lucide-react";
+import { HostelCard } from "../molecules/HostelCard";
+import { hostelResults } from "../../data/hostels";
 
 interface CitySEOContentProps {
   citySlug: string;
@@ -128,6 +130,13 @@ const CitySEOContent = ({ citySlug }: CitySEOContentProps) => {
 
   if (!data) return null;
 
+  let cityHostels = hostelResults.filter((h) => h.city.toLowerCase().includes(citySlug.toLowerCase()));
+  if (cityHostels.length === 0) {
+    cityHostels = hostelResults.slice(0, 3);
+  } else {
+    cityHostels = cityHostels.slice(0, 3);
+  }
+
   return (
     <div className="w-full bg-white dark:bg-slate-900 border-t border-slate-200/60 dark:border-white/5 pt-16 pb-8">
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-slate-700 dark:text-slate-300 space-y-12">
@@ -164,6 +173,40 @@ const CitySEOContent = ({ citySlug }: CitySEOContentProps) => {
           <Typography variant="p" className="text-base leading-relaxed relative z-10">
             {data.whyText}
           </Typography>
+        </section>
+
+        {/* Popular Hostels Scroller */}
+        <section>
+          <div className="flex items-center justify-between mb-6">
+            <div>
+              <Typography variant="h3" className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">
+                Top Stays in {data.introTitle}
+              </Typography>
+              <Typography variant="p" className="text-sm sm:text-base text-slate-500 mt-1">
+                Explore our most popular and highly-rated student accommodations.
+              </Typography>
+            </div>
+            <Link href={`/city/${citySlug}/hostels`} className="hidden sm:inline-flex items-center text-sm font-bold text-primary hover:text-primary-hover transition-colors">
+              Explore All <ChevronRight className="h-4 w-4 ml-1" />
+            </Link>
+          </div>
+          
+          <div className="flex sm:grid sm:grid-cols-3 overflow-x-auto pb-6 -mx-4 px-4 sm:mx-0 sm:px-0 sm:pb-0 gap-6 snap-x snap-mandatory hide-scrollbar" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+            {cityHostels.map((hostel) => (
+              <div key={hostel.id} className="min-w-[280px] sm:min-w-0 snap-start shrink-0">
+                <HostelCard {...hostel} location={hostel.city} className="h-full" />
+              </div>
+            ))}
+          </div>
+          
+          <div className="mt-2 text-center sm:hidden">
+            <Link 
+              href={`/city/${citySlug}/hostels`}
+              className="inline-flex w-full items-center justify-center rounded-xl bg-primary/10 px-4 py-3 text-sm font-bold text-primary transition-all hover:bg-primary/20"
+            >
+              Explore All Stays
+            </Link>
+          </div>
         </section>
 
         {/* What's Included */}
