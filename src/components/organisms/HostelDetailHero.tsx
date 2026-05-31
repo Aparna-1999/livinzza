@@ -61,7 +61,7 @@ export const HostelDetailHero = ({ hostel }: { hostel: any }) => {
             </div>
 
             <div className="flex-shrink-0 flex gap-4">
-              <Button href="/contact" variant="primary" className="rounded-xl px-8 py-3.5 shadow-xl hover:shadow-primary/50 transition-all text-sm font-bold">
+              <Button href="/schedule" variant="primary" className="rounded-xl px-8 py-3.5 shadow-xl hover:shadow-primary/50 transition-all text-sm font-bold">
                 Book appointment
               </Button>
             </div>

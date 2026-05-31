@@ -54,7 +54,7 @@ const Header = () => {
               <div className="font-semibold text-slate-900 dark:text-slate-100">Our Address</div>
               <div>Bagalur, New Airport Road, North Bengaluru, Karnataka</div>
             </div>
-            <Button href="/contact" size="sm" className="rounded-full px-4 xl:px-5">
+            <Button href="/schedule" size="sm" className="rounded-full px-4 xl:px-5">
               Book appointment
             </Button>
           </div>
@@ -70,7 +70,7 @@ const Header = () => {
               <Button href="/know-more" variant="secondary" className="w-full rounded-full bg-primary text-white hover:bg-primary-hover">
                 Know More
               </Button>
-              <Button href="/contact" className="w-full rounded-full">
+              <Button href="/schedule" className="w-full rounded-full">
                 Book appointment
               </Button>
             </div>
