@@ -29,8 +29,8 @@ const Footer = () => {
             <Typography variant="h4" className="mb-6 text-base text-slate-900 dark:text-slate-100">Company</Typography>
             <ul className="space-y-4">
               {[
-                { label: "About Us", href: "/know-more" },
-                { label: "Careers", href: "#" },
+                { label: "About Us", href: "/about-us" },
+                { label: "Careers", href: "/careers" },
                 { label: "Partner with Us", href: "/partner-with-us" },
                 { label: "Contact Us", href: "/contact" },
               ].map((item) => (
@@ -49,9 +49,15 @@ const Footer = () => {
           <div>
             <Typography variant="h4" className="mb-6 text-base text-slate-900 dark:text-slate-100">Policies</Typography>
             <ul className="space font-normal space-y-4">
-              {["Terms & Conditions", "Refund Policy", "Privacy Policy", "Cookie Policy"].map((item) => (
-                <li key={item}>
-                  <a href="#" className="text-sm text-slate-600 transition-colors hover:text-primary dark:text-slate-400 dark:hover:text-white">{item}</a>
+              {[
+                { label: "Terms & Conditions", href: "/terms-conditions" },
+                { label: "Refund Policy", href: "/refund-policy" },
+                { label: "Privacy Policy", href: "/privacy-policy" },
+              ].map((item) => (
+                <li key={item.label}>
+                  <Link href={item.href} className="text-sm text-slate-600 transition-colors hover:text-primary dark:text-slate-400 dark:hover:text-white">
+                    {item.label}
+                  </Link>
                 </li>
               ))}
             </ul>
