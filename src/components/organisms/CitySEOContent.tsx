@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Typography } from "../atoms/Typography";
 import { CheckCircle2, ShieldCheck, MapPin, Sparkles } from "lucide-react";
 
@@ -141,9 +142,17 @@ const CitySEOContent = ({ citySlug }: CitySEOContentProps) => {
               {data.introTitle}
             </Typography>
           </div>
-          <Typography variant="p" className="text-base sm:text-lg leading-relaxed">
+          <Typography variant="p" className="text-base sm:text-lg leading-relaxed mb-8">
             {data.intro}
           </Typography>
+          <div className="relative w-full h-[300px] sm:h-[400px] rounded-3xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-none border border-slate-200/50 dark:border-white/5">
+            <Image
+              src="/images/lifestyle_1.png"
+              alt={`${data.introTitle} Student Living`}
+              fill
+              className="object-cover hover:scale-105 transition-transform duration-700"
+            />
+          </div>
         </section>
 
         {/* Why Livinzza */}
@@ -193,6 +202,16 @@ const CitySEOContent = ({ citySlug }: CitySEOContentProps) => {
             </Typography>
           </section>
         )}
+
+        {/* Lifestyle Image */}
+        <section className="relative w-full h-[300px] sm:h-[400px] rounded-3xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-none border border-slate-200/50 dark:border-white/5">
+          <Image
+            src="/images/lifestyle_2.png"
+            alt="Community Living Experience"
+            fill
+            className="object-cover hover:scale-105 transition-transform duration-700"
+          />
+        </section>
 
         {/* Conclusion */}
         <section className="bg-primary/5 border border-primary/10 rounded-3xl p-8 text-center flex flex-col items-center">

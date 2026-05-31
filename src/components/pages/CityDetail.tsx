@@ -28,6 +28,7 @@ import { MainLayout } from "../templates/MainLayout";
 import { Typography } from "../atoms/Typography";
 import { Button } from "../atoms/Button";
 import { CitySEOContent } from "../organisms/CitySEOContent";
+import { FAQ } from "../organisms/FAQ";
 import { hostelResults } from "../../data/hostels";
 
 interface CityDetailProps {
@@ -101,8 +102,31 @@ const CityDetail = ({ citySlug }: CityDetailProps) => {
 
   return (
     <MainLayout>
-      <section className="bg-slate-50 dark:bg-slate-950 min-h-screen pt-20 pb-20 transition-all duration-300 flex flex-col">
+      <section className="bg-slate-50 dark:bg-slate-950 min-h-screen pt-16 pb-20 transition-all duration-300 flex flex-col">
         
+        {/* Dynamic City Hero Banner */}
+        <div className="w-full relative h-[40vh] sm:h-[50vh] min-h-[350px] flex items-center justify-center overflow-hidden mb-12">
+          <Image
+            src={`/images/${["bangalore", "kochi", "kottayam", "trivandrum", "calicut"].includes(cleanSlug) ? cleanSlug : "college_campus_exterior"}.png`}
+            alt={`${cityName} Student Hostels`}
+            fill
+            className="object-cover scale-105"
+            priority
+          />
+          <div className="absolute inset-0 bg-slate-900/50 dark:bg-slate-900/70 bg-gradient-to-t from-slate-950/80 via-transparent to-slate-900/30" />
+          <div className="relative z-10 text-center px-4 max-w-4xl mx-auto mt-8">
+            <Typography variant="small" className="uppercase tracking-[0.3em] text-white/80 font-bold mb-4 block drop-shadow-sm">
+              Discover Stays In
+            </Typography>
+            <Typography variant="h1" className="text-5xl sm:text-7xl font-black text-white mb-6 drop-shadow-md uppercase tracking-tight">
+              {cityName}
+            </Typography>
+            <Typography variant="p" className="text-lg sm:text-xl text-white/95 font-medium max-w-2xl mx-auto drop-shadow-sm leading-relaxed">
+              {cityMotto}
+            </Typography>
+          </div>
+        </div>
+
         {/* Centered Main Content Area */}
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full">
           
@@ -306,6 +330,11 @@ const CityDetail = ({ citySlug }: CityDetailProps) => {
                 </AnimatePresence>
               </div>
             </div>
+          </div>
+
+          {/* FAQ Section */}
+          <div className="mb-20">
+            <FAQ />
           </div>
 
           {/* 6. Popular Cities Directory List */}
